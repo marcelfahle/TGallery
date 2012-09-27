@@ -20,9 +20,11 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '1.2.3'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails', '2.0.2'
+gem 'heroku'
 
 group :test do
   gem 'capybara', '1.1.2'
