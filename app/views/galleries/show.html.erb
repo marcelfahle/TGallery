@@ -43,7 +43,7 @@
   <%- model_class = Photo -%>
   <ul class="backend-photo-list thumbnails">
     <% @gallery.photos.each do |photo| %>
-      <li class="span4">
+      <li class="span3">
         <div class="thumbnail">
           <%= image_tag photo.image_url(:backend_thumb).to_s %>
           <div class="caption">
