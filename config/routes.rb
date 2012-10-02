@@ -1,7 +1,11 @@
 DEVDeploy::Application.routes.draw do
   resources :photos
 
-  resources :galleries
+  scope 'admin' do
+    resources :galleries
+  end
+
+  match 'gallery/:id', :to => 'galleries#public'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

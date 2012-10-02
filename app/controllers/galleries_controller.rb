@@ -21,6 +21,15 @@ class GalleriesController < ApplicationController
     end
   end
 
+  def public 
+    @gallery = Gallery.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :layout => "public" }  # public.html.erb
+      format.json { render json: @gallery }
+    end
+  end
+
   # GET /galleries/new
   # GET /galleries/new.json
   def new
