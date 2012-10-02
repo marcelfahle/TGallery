@@ -3,10 +3,10 @@
   <h1><%= @gallery.name %></h1>
 
   <%- model_class = Photo -%>
-  <ul class="backend-photo-list thumbnails">
+  <ul class="">
     <% @gallery.photos.each do |photo| %>
-      <li class="span3">
-        <div class="thumbnail">
+      <li>
+        <div>
           <%= image_tag photo.image_url(:backend_thumb).to_s %>
           <div class="caption">
             <p><%= photo.caption %></p>
