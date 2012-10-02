@@ -29,3 +29,39 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+
+<div class="backend-photo-controls">
+  <h2>Photos in this Gallery</h2>
+<%= link_to "New Photo",
+            {:controller => "photos", :action => "new", :gallery_id => @gallery.id},
+            :class => 'btn btn-primary' %>
+    <p>&nbsp;</p>
+</div>
+
+<div class="backend-photo-wrapper row-fluid">
+
+  <%- model_class = Photo -%>
+  <ul class="backend-photo-list thumbnails">
+    <% @gallery.photos.each do |photo| %>
+      <li class="span4">
+        <div class="thumbnail">
+          <%= image_tag photo.image_url(:backend_thumb).to_s %>
+          <div class="caption">
+            <p><%= photo.caption %></p>
+            <p><%= photo.owner %></p>
+            <p>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_photo_path(photo), :class => 'btn btn-primary ' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          photo_path(photo),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-danger' %>
+            </p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  <ul>
+
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927183934) do
+ActiveRecord::Schema.define(:version => 20121002005919) do
 
   create_table "galleries", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120927183934) do
     t.boolean  "is_active"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "gallery_id"
   end
 
 end

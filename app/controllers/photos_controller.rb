@@ -24,13 +24,17 @@ class PhotosController < ApplicationController
   # GET /photos/new
   # GET /photos/new.json
   def new
-    @photo = Photo.new
+    @photo = Photo.new    
+    
+    #@photo = Photo.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @photo }
     end
   end
+
+
 
   # GET /photos/1/edit
   def edit
@@ -40,7 +44,8 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(params[:photo])
+    @gallery = Gallery.find(params[:gallery_id])
+    @photo = @gallery.photos.new(params[:photo])
 
     respond_to do |format|
       if @photo.save
