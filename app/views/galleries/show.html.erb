@@ -10,7 +10,11 @@
   <dd><%= @gallery.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:background) %>:</strong></dt>
   <dd><%= image_tag @gallery.background_url(:thumb).to_s %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:has_rating) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:show_headline) %>:</strong></dt>
+  <dd><%= @gallery.show_headline %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:has_comments) %>:</strong></dt>
+  <dd><%= @gallery.top_margin %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:top_margin) %>:</strong></dt>
   <dd><%= @gallery.has_rating %></dd>
   <dt><strong><%= model_class.human_attribute_name(:has_comments) %>:</strong></dt>
   <dd><%= @gallery.has_comments %></dd>

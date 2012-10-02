@@ -18,6 +18,18 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :show_headline, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :show_headline, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :top_margin, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :top_margin, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :has_rating, :class => 'control-label' %>
     <div class="controls">
       <%= f.check_box :has_rating, :class => 'check_box' %>
