@@ -51,7 +51,7 @@
             <p>(<%= photo.owner %>)</p>
             <p>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_photo_path(photo, :gallery_id => @gallery.id), :class => 'btn btn-primary ' %>
+                edit_photo_path(photo, :gallery_id => @gallery.id), :class => 'btn ' %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                 photo_path(photo, :gallery_id => @gallery.id),
                           :method => :delete,
