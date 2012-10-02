@@ -18,9 +18,9 @@
     <% @galleries.each do |gallery| %>
       <tr>
         <td><%= link_to gallery.id, gallery_path(gallery) %></td>
-        <td><%= gallery.name %></td>
+        <td><%= link_to gallery.name, gallery_path(gallery)  %></td>
         <td><%= gallery.email %></td>
-        <td><%= image_tag gallery.background_url(:thumb).to_s %></td>
+        <td><%= link_to (image_tag gallery.background_url(:thumb).to_s), gallery_path(gallery) %></td>
         <td><%= gallery.has_rating %></td>
         <td><%= gallery.has_comments %></td>
         <td>
