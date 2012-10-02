@@ -1,9 +1,8 @@
-
 <div class="wrapper" style="background: url('<%= @gallery.background_url.to_s %>') top center no-repeat;">
   <h1><%= @gallery.name %></h1>
 
   <%- model_class = Photo -%>
-  <ul class="">
+  <ul>
     <% @gallery.photos.each do |photo| %>
       <li>
         <div>

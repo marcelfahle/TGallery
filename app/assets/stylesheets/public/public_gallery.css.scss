@@ -58,16 +58,18 @@ body {
 .wrapper {
   height: 100%;
   color: white;
+  text-align: center;
 
 
   ul {
     display: inline;
+    margin: 0 auto;
 
 
     li {
       display: inline-block;
       list-style: none;
-      border: 1px solid red;
+      border: 1px solid #dfdfdf;
       width: 300px;
       height: 300px;
       margin: 10px;
