@@ -1,6 +1,6 @@
 <div class="wrapper" style="background: url('<%= @gallery.background_url.to_s %>') top center no-repeat; padding-top: <%= @gallery.top_margin %>px;">
   <% if @gallery.show_headline %>
-    <h1><%= @gallery.name %></h1>
+    <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
   <% end %>
 
 
@@ -8,7 +8,7 @@
   <ul>
     <% @gallery.photos.each do |photo| %>
       <li>
-        <div>
+        <div style="color: <%= @gallery.text_color %>;">
           <%= image_tag photo.image_url(:backend_thumb).to_s %>
           <div class="caption">
             <p><%= photo.caption %></p>

@@ -13,8 +13,14 @@
   <dt><strong><%= model_class.human_attribute_name(:background) %>:</strong></dt>
   <dd><%= image_tag @gallery.background_url(:thumb).to_s %></dd>
 
+  <dt><strong><%= model_class.human_attribute_name(:text_color) %>:</strong></dt>
+  <dd><%= @gallery.text_color %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:show_headline) %>:</strong></dt>
   <dd><%= @gallery.show_headline %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:headline_color) %>:</strong></dt>
+  <dd><%= @gallery.headline_color %></dd>
 
   <dt><strong><%= model_class.human_attribute_name(:top_margin) %>:</strong></dt>
   <dd><%= @gallery.top_margin %></dd>
