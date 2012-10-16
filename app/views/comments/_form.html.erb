@@ -1,0 +1,26 @@
+<%= form_for @comment, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :text, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :text, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :author_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :author_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :author_email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :author_email, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                comments_path, :class => 'btn' %>
+  </div>
+<% end %>
