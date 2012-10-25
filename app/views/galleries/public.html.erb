@@ -31,7 +31,11 @@
                                 :rel => "grp#{@gallery.id};"  %>
           <div class="caption">
             <p><%= photo.caption %><br>
-            von <%= photo.owner %></p>
+            <% if photo.owner != "" %>
+              von <%= photo.owner %></p>
+            <% else %>
+              &nbsp;</p>
+            <% end %>
           </div>
         </div>
       </li>
