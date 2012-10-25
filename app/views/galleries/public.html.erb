@@ -1,4 +1,4 @@
-<div class="wrapper" style="background: <%= @gallery.background_color.to_s %> url('<%= @gallery.background_url.to_s %>') top center no-repeat; padding-top: <%= @gallery.top_margin %>px;">
+<div class="wrapper" style="background: <%= @gallery.background_color.to_s %> url('<%= @gallery.background_url.to_s %>') top center no-repeat; padding-top: <%= @gallery.top_margin %>px; width: <%= @gallery.site_width %>px; margin: 0 auto;">
   <% if @gallery.show_headline %>
     <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
   <% end %>
