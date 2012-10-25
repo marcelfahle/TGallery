@@ -1,64 +1,123 @@
 <%= form_for @gallery, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+  <div class="row">
+    <div class="span12">
+
+      <div class="control-group">
+        <%= f.label :name, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :name, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :email, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :email, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :has_rating, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.check_box :has_rating, :class => 'check_box' %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :has_comments, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.check_box :has_comments, :class => 'check_box' %>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :email, :class => 'text_field' %>
+  <div class="row">
+    <div class="span6">
+
+      <h4>Gallery Design</h4>
+
+      <div class="control-group">
+        <%= f.label :background, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.file_field :background, :class => 'text_field' %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :background_color, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :background_color, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :site_width, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :site_width, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :text_color, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :text_color, :class => 'text_field' %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :show_headline, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.check_box :show_headline, :class => 'check_box' %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :headline_color, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :headline_color, :class => 'text_field' %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :top_margin, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :top_margin, :class => 'text_field' %>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :background, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.file_field :background, :class => 'text_field' %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :text_color, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :text_color, :class => 'text_field' %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :show_headline, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :show_headline, :class => 'check_box' %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :headline_color, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :headline_color, :class => 'text_field' %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :top_margin, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :top_margin, :class => 'text_field' %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :has_rating, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :has_rating, :class => 'check_box' %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :has_comments, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :has_comments, :class => 'check_box' %>
+
+    <div class="span6">
+      <h4>Photo Settings</h4>
+
+      <div class="control-group">
+        <%= f.label :photo_border, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.check_box :photo_border, :class => 'check_box' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :photo_border_color, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :photo_border_color, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :photo_border_width, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :photo_border_width, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :thumb_size, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select("thumb_size", %w[large medium small tiny]) %>
+        </div>
+      </div>
     </div>
   </div>
 

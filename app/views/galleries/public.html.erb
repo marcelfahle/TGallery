@@ -1,4 +1,4 @@
-<div class="wrapper" style="background: url('<%= @gallery.background_url.to_s %>') top center no-repeat; padding-top: <%= @gallery.top_margin %>px;">
+<div class="wrapper" style="background: <%= @gallery.background_color.to_s %> url('<%= @gallery.background_url.to_s %>') top center no-repeat; padding-top: <%= @gallery.top_margin %>px;">
   <% if @gallery.show_headline %>
     <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
   <% end %>
@@ -7,16 +7,36 @@
   <%- model_class = Photo -%>
   <ul>
     <% @gallery.photos.each do |photo| %>
+      <% if photo.is_active %>
       <li>
-        <div style="color: <%= @gallery.text_color %>;">
-          <%= image_tag photo.image_url(:backend_thumb).to_s %>
+        <div class="thumbwrapper" style="color: <%= @gallery.text_color %>; ">
+          <%= link_to image_tag(photo.image_url(:backend_thumb).to_s, 
+                                :style => "border-style: solid; border-color: #{@gallery.photo_border_color}; border-width: #{@gallery.photo_border_width}px;"), 
+                                "#lb_#{photo.id}", 
+                                :class => "imglightboxopener", 
+                                :rel => "grp#{@gallery.id};"  %>
           <div class="caption">
-            <p><%= photo.caption %></p>
-            <p>(<%= photo.owner %>)</p>
+            <p><%= photo.caption %><br>
+            von <%= photo.owner %></p>
           </div>
         </div>
       </li>
+      <% end %>
     <% end %>
   <ul>
-
+    <% @gallery.photos.each do |photo| %>
+      <% if photo.is_active %>
+          <div class="imglightbox" id="lb_<%= photo.id %>">
+            <div class="comments">
+              <h3>Kommentare</h3>
+              <ul>
+                <li><h5>Kommentar 1</h5><p><strong>John Doe</strong><br/>Blah bnlah</p></li>
+              </ul>
+            </div>
+            <div class="img">
+              <%= image_tag photo.image_url(:max).to_s %>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
 </div>

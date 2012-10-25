@@ -13,6 +13,7 @@
   <dt><strong><%= model_class.human_attribute_name(:background) %>:</strong></dt>
   <dd><%= image_tag @gallery.background_url(:thumb).to_s %></dd>
 
+  <!--
   <dt><strong><%= model_class.human_attribute_name(:text_color) %>:</strong></dt>
   <dd><%= @gallery.text_color %></dd>
 
@@ -30,7 +31,7 @@
 
   <dt><strong><%= model_class.human_attribute_name(:has_comments) %>:</strong></dt>
   <dd><%= @gallery.has_comments %></dd>
-
+  //-->
   <dt><strong>Public URL:</strong></dt>
   <dd><a href="<%= "#{request.protocol}#{request.host_with_port}/gallery/#{@gallery.id}" %>" target="_blank"><%= "#{request.protocol}#{request.host_with_port}/gallery/#{@gallery.id}" %></a></dd>
 </dl>
