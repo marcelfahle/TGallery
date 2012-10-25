@@ -47,7 +47,17 @@ body {
   padding: 4px;
   width: 180px;
 
+  h4 {
+    margin-top: 0;
+  }
 }
 .fancybox-inner {
   overflow: hidden !important;
+}
+.fancybox-nav {
+  width: 30%;
+
+}
+.fancybox-next {
+  right: 190px;
 }

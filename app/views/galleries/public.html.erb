@@ -28,10 +28,12 @@
       <% if photo.is_active %>
           <div class="imglightbox" id="lb_<%= photo.id %>">
             <div class="comments">
-              <h3>Kommentare</h3>
+              <h4>Kommentare</h4>
+              <!--
               <ul>
                 <li><h5>Kommentar 1</h5><p><strong>John Doe</strong><br/>Blah bnlah</p></li>
               </ul>
+              //-->
             </div>
             <div class="img">
               <%= image_tag photo.image_url(:max).to_s %>
