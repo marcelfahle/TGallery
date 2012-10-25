@@ -10,7 +10,21 @@
       <% if photo.is_active %>
       <li>
         <div class="thumbwrapper" style="color: <%= @gallery.text_color %>; ">
-          <%= link_to image_tag(photo.image_url(:backend_thumb).to_s, 
+          <%
+            case @gallery.thumb_size
+              when "large"
+                tsize = :thumb_large
+              when "medium"
+                tsize = :thumb_medium
+              when "small"
+                tsize = :thumb_small
+              when "tiny"
+                tsize = :thumb_tiny
+              else
+                tsize = :thumb_large
+              end
+          %>
+          <%= link_to image_tag(photo.image_url(tsize).to_s, 
                                 :style => "border-style: solid; border-color: #{@gallery.photo_border_color}; border-width: #{@gallery.photo_border_width}px;"), 
                                 "#lb_#{photo.id}", 
                                 :class => "imglightboxopener", 
