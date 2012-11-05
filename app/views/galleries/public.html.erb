@@ -24,19 +24,19 @@
                 tsize = :thumb_large
               end
           %>
-          <%= link_to image_tag(photo.image_url(tsize).to_s, 
-                                :style => "border-style: solid; border-color: #{@gallery.photo_border_color}; border-width: #{@gallery.photo_border_width}px;"), 
-                                "#lb_#{photo.id}", 
-                                :class => "imglightboxopener", 
-                                :rel => "grp#{@gallery.id};"  %>
-          <div class="caption">
-            <p><%= photo.caption %><br>
-            <% if photo.owner != "" %>
-              von <%= photo.owner %></p>
-            <% else %>
-              &nbsp;</p>
-            <% end %>
-          </div>
+          <a href="#lb_<%=photo.id %>" class="imglightboxopener" rel="grp<%=@gallery.id %>">
+            <%= image_tag("/assets/transp.gif", :width => "100%", :height => "100%", :class => "transpoverlay") %>
+          </a>
+          <%= image_tag(photo.image_url(tsize).to_s, 
+                      :style => "border-style: solid; border-color: #{@gallery.photo_border_color}; border-width: #{@gallery.photo_border_width}px;")  %>
+          
+              <h4>
+                <%= photo.caption %><br>
+                <% if photo.owner != "" %>von <%= photo.owner %>
+                <% else %>
+                  &nbsp;
+                <% end %>
+              </h4>
         </div>
       </li>
       <% end %>
@@ -45,6 +45,7 @@
     <% @gallery.photos.each do |photo| %>
       <% if photo.is_active %>
           <div class="imglightbox" id="lb_<%= photo.id %>">
+
             <div class="comments">
               <h4>Kommentare</h4>
               <!--
@@ -55,6 +56,13 @@
             </div>
             <div class="img">
               <%= image_tag photo.image_url(:max).to_s %>
+              <h3>
+                <%= photo.caption %><br>
+                <% if photo.owner != "" %>von <%= photo.owner %>
+                <% else %>
+                  &nbsp;
+                <% end %>
+              </h3>
             </div>
           </div>
       <% end %>

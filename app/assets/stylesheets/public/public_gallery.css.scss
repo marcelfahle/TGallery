@@ -13,7 +13,7 @@ body {
 
 
   ul {
-    display: inline;
+    display: inline-block;
     margin: 0 auto;
 
 
@@ -25,13 +25,59 @@ body {
       margin: 10px;
 
       div.thumbwrapper {
-        display: inline;
         /*width: 300px;*/
         overflow: hidden;
+        position: relative;
 
+        a {
+          display: inline-block;
+
+          
+        }
+        a:link, a:visited {
+          color: #fff;
+          text-decoration: none;
+        }
+        a:hover, a:active {
+          color: #fff;
+          text-decoration: none;
+        }
+        h4 {
+          position: absolute;
+          margin: 0;
+          margin-left: 4px;
+          padding: 0;
+          bottom: 8px;
+          left: 0px;
+          width: 100%;
+          text-align: left;
+          line-height: 14px;
+          font-weight: normal;
+          font-size: 14px;
+          color: white !important;
+
+          span {
+            color: white; 
+            font: normal 12px/26px Helvetica, Sans-Serif; 
+            letter-spacing: 0px;  
+            background: rgb(0, 0, 0); /* fallback color */
+            background: rgba(0, 0, 0, 0.7);
+            padding: 6px;
+          }
+          span.spacer {
+            padding:0 3px;
+          }
+        }
+        
       }
     }
   }
+}
+.transpoverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .imglightbox {
@@ -40,6 +86,32 @@ body {
 }
 .img {
   float: left;
+
+  h3 {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    bottom: 8px;
+    left: 0px;
+    width: 100%;
+    text-align: left;
+    line-height: 14px;
+    font-weight: normal;
+    font-size: 14px;
+    color: white !important;
+
+    span {
+      color: white; 
+      font: normal 24px/40px Helvetica, Sans-Serif; 
+      letter-spacing: 0px;  
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.7);
+      padding: 6px;
+    }
+    span.spacer {
+      padding:0 3px;
+    }
+  } 
 }
 
 .comments {
