@@ -7,4 +7,8 @@ $ ->
     closeEffect: 'none'
 
   $('.thumbwrapper h4, .img h3').wrapInner "<span>"
-  $(".thumbwrapper h4 br, .img h3 br").before("<span class='spacer'>").after("<span class='spacer'>");
+
+  $('.imglightboxopener').hover( 
+    (e) => $(e.target).parent().parent().find($('.thumbcaption')).fadeIn('fast')
+    (e) => $(e.target).parent().parent().find($('.thumbcaption')).fadeOut()
+  )

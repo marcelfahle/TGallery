@@ -43,17 +43,15 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [300, 300]
   end
   version :thumb_large do
-    process :resize_to_fill => [300, 200]
+    process :resize_to_fill => [THUMB_LARGE_SIZE, THUMB_LARGE_SIZE]
   end
   version :thumb_medium do
-    process :resize_to_fill => [160, 107]
+    process :resize_to_fill => [THUMB_MEDIUM_SIZE, THUMB_MEDIUM_SIZE]
   end
   version :thumb_small do
-    process :resize_to_fill => [100, 67]
+    process :resize_to_fill => [THUMB_SMALL_SIZE, THUMB_SMALL_SIZE]
   end
-  version :thumb_tiny do
-    process :resize_to_fill => [80, 53]
-  end
+  
   
   version :small do
     process :resize_to_limit => [400, 300]
