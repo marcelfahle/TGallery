@@ -65,8 +65,15 @@
         <div class="thumbnail">
           <%= image_tag photo.image_url(:backend_thumb).to_s %>
           <div class="caption">
-            <p><%= photo.caption %></p>
-            <p>(<%= photo.owner %>)</p>
+            <%
+              if photo.is_active
+                lbl = "<span class='label label-success'>Aktiv</span>"
+              else
+                lbl = "<span class='label'>Inaktiv</span>"
+              end
+            %>
+            <p><strong><%= truncate(photo.owner, :length => 24, :omission => "...") %></strong></p>
+            <p><%= lbl.html_safe %> <%= photo.is_active %><%= truncate(photo.caption, :length => 120, :omission => "...") %></p>
             <p>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_photo_path(photo, :gallery_id => @gallery.id), :class => 'btn ' %>
