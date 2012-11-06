@@ -72,7 +72,6 @@
                 <p><%= photo.caption %></p>
               </div>
               <p>Likes: </p>
-              <% if photo.comments.any? %>
                 <% @comments = photo.comments %>
                 <h4>Kommentare (<%= photo.comments.count %>)</h4>
                 <!--
@@ -81,9 +80,10 @@
                 </ul>
                 //-->
                 <ul class="commentlist" id="commentlist_<%= photo.id %>">
+                <% if photo.comments.any? %>
                   <%= render @comments %> 
+                <% end %>
                 </ul>
-              <% end %>
               
               <div class="commentform">
                 <% @comment = photo.comments.build %>
