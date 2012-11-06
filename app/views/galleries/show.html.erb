@@ -72,9 +72,10 @@
                 lbl = "<span class='label'>Inaktiv</span>"
               end
             %>
+            <p class="imgstatus"><%= lbl.html_safe %></p>
             <p><strong><%= truncate(photo.owner, :length => 24, :omission => "...") %></strong></p>
-            <p><%= lbl.html_safe %> <%= photo.is_active %><%= truncate(photo.caption, :length => 120, :omission => "...") %></p>
-            <p>
+            <p><%= photo.is_active %><%= truncate(photo.caption, :length => 120, :omission => "...") %></p>
+            <p class="imgcontrols">
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_photo_path(photo, :gallery_id => @gallery.id), :class => 'btn ' %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

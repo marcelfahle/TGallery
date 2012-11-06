@@ -4,4 +4,16 @@
 
 .thumbnail {
   height: 350px;
+  position: relative;
+
+
+  .imgstatus {
+    position: absolute;
+    top: 10px;
+  }
+
+  .imgcontrols {
+    position: absolute;
+    bottom: 5px;
+  }
 }
