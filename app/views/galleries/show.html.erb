@@ -62,16 +62,18 @@
   <ul class="backend-photo-list thumbnails">
     <% @gallery.photos.each do |photo| %>
       <li class="span3">
-        <div class="thumbnail">
-          <%= image_tag photo.image_url(:backend_thumb).to_s %>
-          <div class="caption">
             <%
               if photo.is_active
                 lbl = "<span class='label label-success'>Aktiv</span>"
+                st_class= "thumbactive"
               else
                 lbl = "<span class='label'>Inaktiv</span>"
+                st_class= "thumbinactive"
               end
             %>
+          <div class="thumbnail <%=st_class %>">
+          <%= image_tag photo.image_url(:backend_thumb).to_s %>
+          <div class="caption">
             <p class="imgstatus"><%= lbl.html_safe %></p>
             <p><strong><%= truncate(photo.owner, :length => 24, :omission => "...") %></strong></p>
             <p><%= photo.is_active %><%= truncate(photo.caption, :length => 120, :omission => "...") %></p>
