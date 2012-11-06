@@ -76,7 +76,7 @@
           <div class="caption">
             <p class="imgstatus"><%= lbl.html_safe %></p>
             <p><strong><%= truncate(photo.owner, :length => 24, :omission => "...") %></strong></p>
-            <p><%= photo.is_active %><%= truncate(photo.caption, :length => 120, :omission => "...") %></p>
+            <p><%= truncate(photo.caption, :length => 120, :omission => "...") %></p>
             <p class="imgcontrols">
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_photo_path(photo, :gallery_id => @gallery.id), :class => 'btn ' %>
