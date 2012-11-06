@@ -61,7 +61,7 @@
   <%- model_class = Photo -%>
   <ul class="backend-photo-list thumbnails">
     <% @gallery.photos.each do |photo| %>
-      <li class="span3">
+      <li class="span3 thumblistitem">
             <%
               if photo.is_active
                 lbl = "<span class='label label-success'>Aktiv</span>"
