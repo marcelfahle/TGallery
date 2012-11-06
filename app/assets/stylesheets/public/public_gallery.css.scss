@@ -71,6 +71,7 @@ body {
 
 .imglightbox {
   display: none;
+  
 
 }
 .img {
@@ -81,10 +82,35 @@ body {
 .comments {
   float: right;
   padding: 4px;
+  padding-top: 0;
   width: 180px;
 
+  .owner {
+    h3 {
+      font-size: 14px;
+      font-weight: bold;
+      color: #e20074;
+      line-height: 15px;
+      margin-top: 0;
+    }
+    p {
+      font-size: 13px;
+      line-height: 14px;
+    }
+  }
   h4 {
-    margin-top: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #e20074;
+  }
+  .commentform {
+    form {
+      input[type=text], textarea {
+        font-size: 12px;
+        line-height: 12px;
+        width: 140px;
+      }
+    }
   }
 }
 .fancybox-inner {

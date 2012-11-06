@@ -65,20 +65,36 @@
           <div class="imglightbox" id="lb_<%= photo.id %>">
 
             <div class="comments">
-              <h3>
+              <div class="owner">
                 <% if photo.owner != "" %>
-                  <%= photo.owner %>
-                <% else %>
-                  &nbsp;
+                  <h3><%= photo.owner %></h3>
                 <% end %>
-                <br /><%= photo.caption %>
-              </h3>
-              <h4>Kommentare</h4>
-              <!--
-              <ul>
-                <li><h5>Kommentar 1</h5><p><strong>John Doe</strong><br/>Blah bnlah</p></li>
-              </ul>
-              //-->
+                <p><%= photo.caption %></p>
+              </div>
+              <p>Likes: </p>
+              <% if photo.comments.any? %>
+                <% @comments = photo.comments %>
+                <h4>Kommentare (<%= photo.comments.count %>)</h4>
+                <!--
+                <ul>
+                  <li><h5>Kommentar 1</h5><p><strong>John Doe</strong><br/>Blah bnlah</p></li>
+                </ul>
+                //-->
+                <ol class="commentlist">
+                  <%= render @comments %> 
+                </ol>
+              <% end %>
+              
+              <div class="commentform">
+                <% @comment = photo.comments.build %>
+                <%= form_for(@comment) do |f| %>
+                  <%= f.label :author_email, "Ihre E-Mail Adresse" %>
+                  <%= f.text_field :author_email %>
+                  <%= f.label :text, "Kommentar" %>
+                  <%= f.text_area :text, :cols => 6, :rows => 3 %>
+                  <%= f.button "Absenden", type: "submit", class: "btn btn-small" %>
+                <% end %>
+              </div>
             </div>
             <div class="img">
               <%= image_tag photo.image_url(:max).to_s %>
