@@ -80,18 +80,21 @@
                   <li><h5>Kommentar 1</h5><p><strong>John Doe</strong><br/>Blah bnlah</p></li>
                 </ul>
                 //-->
-                <ol class="commentlist">
+                <ul class="commentlist" id="commentlist_<%= photo.id %>">
                   <%= render @comments %> 
-                </ol>
+                </ul>
               <% end %>
               
               <div class="commentform">
                 <% @comment = photo.comments.build %>
-                <%= form_for(@comment) do |f| %>
+                <%= form_for @comment, remote: true do |f| %>
+                  <%= f.label :author_name, "Ihr Name" %>
+                  <%= f.text_field :author_name %>
                   <%= f.label :author_email, "Ihre E-Mail Adresse" %>
                   <%= f.text_field :author_email %>
                   <%= f.label :text, "Kommentar" %>
                   <%= f.text_area :text, :cols => 6, :rows => 3 %>
+                  <%= f.hidden_field :photo_id, :value => photo.id %>
                   <%= f.button "Absenden", type: "submit", class: "btn btn-small" %>
                 <% end %>
               </div>
