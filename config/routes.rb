@@ -1,7 +1,9 @@
 DEVDeploy::Application.routes.draw do
-  resources :comments
 
-  resources :photos
+  resources :comments
+  resources :photos do
+    resources :comments
+  end
 
   scope 'admin' do
     resources :galleries

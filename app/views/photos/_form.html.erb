@@ -31,3 +31,34 @@
                 gallery_path(Gallery.find(params[:gallery_id])), :class => 'btn' %>
   </div>
 <% end %>
+
+<h3>Kommentare</h3>
+ 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Kommentar</th>
+      <th>Author</th>
+      <th>Datum</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @photo.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.id %></td>
+        <td><%= comment.text %></td>
+        <td><%= comment.author_name %></td>
+        <td><%=l comment.created_at %></td>
+        <td>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      photo_comment_path(@photo, comment),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

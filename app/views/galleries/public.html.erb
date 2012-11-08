@@ -81,7 +81,7 @@
               
               <% if @gallery.has_comments? %>
                 <% @comments = photo.comments %>
-                <h4>Kommentare (<%= photo.comments.count %>)</h4>
+                <h4 id="commentsnum_<%= photo.id %>">Kommentare (<%= photo.comments.count %>)</h4>
                   <!--
                   <ul>
                     <li><h5>Kommentar 1</h5><p><strong>John Doe</strong><br/>Blah bnlah</p></li>
