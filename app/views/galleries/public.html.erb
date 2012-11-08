@@ -67,9 +67,11 @@
             <div class="comments">
               <div class="owner">
                 <% if photo.owner != "" %>
-                  <h3><%= photo.owner %></h3>
+                  <p><span class="photoowner"><%= photo.owner %></span>
+                <% else %>
+                  <p>
                 <% end %>
-                <p><%= photo.caption %></p>
+                <%= photo.caption %></p>
               </div>
               <p>Likes: </p>
                 <% @comments = photo.comments %>
