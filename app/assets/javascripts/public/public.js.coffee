@@ -31,5 +31,7 @@ $ ->
   # textfield limit
   $('.commentfield').limit('250','.charsleft');
 
+  #$('.new_comment').submit ->
+    
 
 

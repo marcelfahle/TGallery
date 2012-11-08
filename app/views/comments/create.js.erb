@@ -1,2 +1,2 @@
-$('#commentlist_<%= @comment.photo_id %>').append('<%= j render(@comment) %>')
-
+$('input, textarea').each(function() { $(this).val($(this).attr('title')); });
+$('#commentlist_<%= @comment.photo_id %>').append('<%= j render(@comment) %>');
