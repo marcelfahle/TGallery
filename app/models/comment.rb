@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
 
   belongs_to :photo
 
-  validates :author_email, presence: true
+  validates :author_name, presence: true
   validates :text, presence: true
 
   default_scope order: 'comments.created_at DESC'
