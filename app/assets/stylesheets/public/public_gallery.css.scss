@@ -11,8 +11,12 @@ body {
   color: white;
 
 
+  h1 {
+    margin-left: 20px;
+  }
   ul {
     display: inline-block;
+    margin: 0px 0px 10px 20px !important;
 
 
     li {
