@@ -20,7 +20,7 @@
         <td><%= link_to gallery.id, gallery_path(gallery) %></td>
         <td><%= link_to gallery.name, gallery_path(gallery)  %></td>
         <td><%= gallery.email %></td>
-        <% if gallery.background.nil? %>
+        <% unless gallery.background.nil? %>
           <td><%= link_to (image_tag gallery.background_url(:thumb).to_s), gallery_path(gallery) %></td>
         <% else %>
           <td></td>
