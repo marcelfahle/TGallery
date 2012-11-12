@@ -95,6 +95,7 @@ class PhotosController < ApplicationController
     vote = @photo.photo_votes.new(value: params[:value], photo_id: params[:id])
     respond_to do |format|
       if vote.save
+        cookies["vt#{@photo.id}"] = { :value => 'voted', :expires => 30.seconds.from_now }
         format.js
         format.html { redirect_to :back, notice: "Vielen Dank fuer Ihre Stimme!" }
       else

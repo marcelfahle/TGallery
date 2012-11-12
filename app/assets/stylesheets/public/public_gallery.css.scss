@@ -132,18 +132,23 @@ body {
     position: relative;
     vertical-align: middle;
     height: 34px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
 
     a.votelinknew {
       height: 20px;
       display: inline-block;
-      font-weight: bold;
-      font-size: 14px;
       color: #000;
       background: transparent url('/assets/like_small.gif') 86px 0px no-repeat;
       
       span {
         margin-left: 26px;
         color: #e20074;
+      }
+      span.votes_single {
+        color: #e20074;
+        margin-left: 0px;
       }
     }
     a.votelinknew:link, a.votelinknew:visited {
@@ -171,6 +176,8 @@ body {
       font-size: 16px;
       color: #000;
     }
+  }
+  p.voteswrapper2 {
   }
   h4 {
     margin: 0;
