@@ -8,8 +8,9 @@ class Photo < ActiveRecord::Base
   validates :owner, length: { maximum: 40 }
 
   def self.by_votes
-    select('photos.*, coalesce(value, 0) as votes').
+    select('photos.*, coalesce(SUM(value), 0) as votes').
     joins('left join photo_votes on photo_id=photos.id').
+    group('photos.id').
     order('votes desc')
   end
 
