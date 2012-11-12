@@ -3,6 +3,7 @@ DEVDeploy::Application.routes.draw do
   resources :comments
   resources :photos do
     resources :comments
+    member { post :vote }
   end
 
   scope 'admin' do

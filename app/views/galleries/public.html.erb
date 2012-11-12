@@ -81,7 +81,10 @@
               </div>
               
               <% if @gallery.has_rating? %>
-                <p>Likes: </p>
+                <p class="voteswrapper">
+                  <%= link_to "up", vote_photo_path(photo, value: 1), method: "post", remote: true, class: "votelink" %>
+                  <span class="votes" id="votes_for_<%=photo.id %>"><%= photo.votes %></span>
+                </p>
               <% end %>
               
               

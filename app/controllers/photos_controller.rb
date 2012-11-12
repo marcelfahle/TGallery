@@ -89,4 +89,18 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def vote
+    @photo = Photo.find(params[:id])
+    vote = @photo.photo_votes.new(value: params[:value], photo_id: params[:id])
+    respond_to do |format|
+      if vote.save
+        format.js
+        format.html { redirect_to :back, notice: "Vielen Dank fuer Ihre Stimme!" }
+      else
+        format.js
+        format.html {redirect_to :back, alert: "Es ist ein Fehler aufgetreten. Ihre Stimme wurde nicht gezaehlt" }
+      end
+    end
+  end
 end
