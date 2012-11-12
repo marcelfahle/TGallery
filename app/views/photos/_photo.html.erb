@@ -46,10 +46,16 @@
     
       <div class="thumbcaption" 
         style=" left: <%= border_width  %>px; bottom: <%= border_width %>px; width: <%=px-12 %>px">
-          <% if photo.owner != "" %>
-            <strong><%= truncate(photo.owner, :length => trun_name, :omission => "...")  %></strong><br />
-          <% end %>
-          <%= truncate(photo.caption, :length => trun_desc, :ommision => "...") %>
+
+        <div class="photostats">
+          <p class="photostats-like"><%= photo.votes %></p>
+          <p class="photostats-comment"><%= photo.comments.count %></p>
         </div>
+        
+        <% if photo.owner != "" %>
+          <strong><%= truncate(photo.owner, :length => trun_name, :omission => "...")  %></strong><br />
+        <% end %>
+        <%= truncate(photo.caption, :length => trun_desc, :ommision => "...") %>
+      </div>
   </div>
 </li>

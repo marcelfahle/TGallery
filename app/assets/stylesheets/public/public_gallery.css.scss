@@ -71,6 +71,28 @@ body {
   background: rgba(255, 255, 255, 0.7);
   padding: 6px;
   display: none;
+
+  .photostats {
+    font-size: 12px;
+    width: 30px;
+    float: right;
+    top: 0;
+    right: 0;
+    text-align: right;
+    border: 1px solid #aaa;
+    padding: 2px;
+
+    p {
+      margin: 0;
+    }
+    p.photostats-like {
+      background: transparent url('/assets/like_tiny.png') left top no-repeat;
+    }
+    p.photostats-comment {
+      background: transparent url('/assets/comment_tiny.png') left top no-repeat;
+    }
+  }
+
 }
 
 .imglightbox {
