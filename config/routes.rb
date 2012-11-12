@@ -1,5 +1,7 @@
 DEVDeploy::Application.routes.draw do
 
+  root :to => 'galleries#index'
+  
   resources :comments
   resources :photos do
     resources :comments
@@ -12,6 +14,7 @@ DEVDeploy::Application.routes.draw do
   end
 
   match 'gallery/:id', :to => 'galleries#public'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
