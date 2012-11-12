@@ -1,4 +1,6 @@
 class GalleriesController < ApplicationController
+  before_filter :authorize, except: [:public]
+
   # GET /galleries
   # GET /galleries.json
   def index

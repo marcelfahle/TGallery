@@ -22,8 +22,23 @@
         </a>
         <a class="brand" href="#">Gebser's Gallery-o-Mat</a>
         <div class="nav-collapse">
-          <ul class="nav">
-           <li class="<%= controller.controller_path == 'galleries' ? 'active' : '' %>"><a href="<%= galleries_path %>">Galleries</a></li></ul>
+          <% if current_user %>
+            <ul class="nav">
+              <li class="<%= controller.controller_path == 'galleries' ? 'active' : '' %>">
+                <a href="<%= galleries_path %>">Galleries</a>
+              </li>
+            </ul>
+          <% end %>
+
+          <ul class="nav pull-right">
+            <% if current_user %>
+              <li><a href="#"><%= current_user.email %></a></li>
+              <li><%= link_to "Log Out", logout_path %></li>
+            <% else %>
+              <li><%= link_to "Log In", login_path %></li>
+            <% end %>
+          </ul>
+
         </div>
       </div>
     </div>
