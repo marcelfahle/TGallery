@@ -5,6 +5,7 @@
 
 
   <%- model_class = Photo -%>
+  <!-- thumbnails //-->
   <ul>
     <% if @gallery.has_rating? %>
       <% @gallery.photos.by_votes.each do |photo| %>
@@ -19,6 +20,10 @@
         <% end %>
       <% end %>
     <% end %>
+  </ul>   
+    
+  
+  <!-- lightboxes //-->
   <ul>
     <% @gallery.photos.each do |photo| %>
       <% if photo.is_active %>
@@ -36,8 +41,13 @@
               
               <% if @gallery.has_rating? %>
                 <p class="voteswrapper">
-                  <%= link_to "up", vote_photo_path(photo, value: 1), method: "post", remote: true, class: "votelink" %>
-                  <span class="votes" id="votes_for_<%=photo.id %>"><%= photo.votes %></span>
+                  <%= link_to(vote_photo_path(photo, value: 1), 
+                              method: "post", 
+                              remote: true, 
+                              class: "votelinknew") do %>
+                    Gefaellt mir  
+                    <span class="votes" id="votes_for_<%=photo.id %>"><%= photo.votes %></span>
+                  <% end %>
                 </p>
               <% end %>
               
