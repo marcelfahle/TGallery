@@ -3,4 +3,6 @@ class Photo < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   belongs_to :gallery
   has_many :comments, dependent: :destroy
+
+  validates :owner, length: { maximum: 40 }
 end

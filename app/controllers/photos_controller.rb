@@ -53,6 +53,8 @@ class PhotosController < ApplicationController
         format.html { redirect_to gallery_path(@gallery), notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
       else
+        flash[:error] = @photo.errors.empty? ? "Error" : @photo.errors.full_messages.to_sentence
+        #flash.now[:error] = "Error"
         format.html { render action: "new" }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end

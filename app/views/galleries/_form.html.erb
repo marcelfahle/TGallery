@@ -42,6 +42,14 @@
         <%= f.label :background, :class => 'control-label' %>
         <div class="controls">
           <%= f.file_field :background, :class => 'text_field' %>
+          <%= image_tag @gallery.background_url(:thumb).to_s %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label "Delete Background", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.check_box :remove_background %>
         </div>
       </div>
       

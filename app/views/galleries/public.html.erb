@@ -36,7 +36,13 @@
         # total width
         tw = px + (@gallery.photo_border_width * 2)
         border_color = @gallery.photo_border_color
-        border_width = @gallery.photo_border_width
+        if @gallery.photo_border == false
+          border_width = 0
+          tw = px
+        else
+          border_width = @gallery.photo_border_width
+          tw = px + (@gallery.photo_border_width * 2)
+        end
       %>
       <div class="thumbwrapper" style="color: <%= @gallery.text_color %>; width: <%=tw %>px; ">
         <a href="#lb_<%=photo.id %>" class="imglightboxopener" rel="grp<%=@gallery.id %>">
