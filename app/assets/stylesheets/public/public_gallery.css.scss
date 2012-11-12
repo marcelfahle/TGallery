@@ -193,9 +193,19 @@ body {
       margin-bottom: 12px;
       padding: 2px;
       padding-left: 4px;
-        
-      .author {
-        font-weight: bold;
+
+      p {
+
+        margin: 0;
+        word-wrap: break-word;
+          
+        .author {
+          font-weight: bold;
+          word-wrap: break-word;
+        }
+        .content {
+          word-wrap: break-word;
+        }
       }
     }
   }
