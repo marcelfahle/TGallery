@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+  acts_as_list
+
   attr_accessible :caption, :image, :is_active, :owner
   mount_uploader :image, ImageUploader
   belongs_to :gallery
@@ -6,6 +8,7 @@ class Photo < ActiveRecord::Base
   has_many :photo_votes, dependent: :destroy
 
   validates :owner, length: { maximum: 40 }
+
 
   def self.by_votes
     select('photos.*, coalesce(SUM(value), 0) as votes').

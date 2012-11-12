@@ -59,9 +59,9 @@
 <div class="backend-photo-wrapper row-fluid">
 
   <%- model_class = Photo -%>
-  <ul class="backend-photo-list thumbnails">
-    <% @gallery.photos.each do |photo| %>
-      <li class="span3 thumblistitem">
+  <ul id="backendphotolist" class="backend-photo-list thumbnails" data-update-url="<%= sort_photos_url %>">
+    <% @gallery.photos.order("position").each do |photo| %>
+      <%= content_tag_for(:li, photo, class: "span3 thumblistitem") do %>
             <%
               if photo.is_active
                 lbl = "<span class='label label-success'>Aktiv</span>"
@@ -89,7 +89,7 @@
             </p>
           </div>
         </div>
-      </li>
+      <% end %>
     <% end %>
   <ul>
 

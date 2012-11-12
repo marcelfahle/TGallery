@@ -13,7 +13,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <% @gallery.photos.each do |photo| %>
+      <% @gallery.photos.order("position").each do |photo| %>
         <% if photo.is_active %>
           <%= render photo %>
         <% end %>

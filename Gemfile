@@ -29,6 +29,7 @@ gem 'heroku'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
+gem 'acts_as_list'
 
 group :test do
   gem 'capybara', '1.1.2'

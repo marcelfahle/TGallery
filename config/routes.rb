@@ -3,6 +3,7 @@ DEVDeploy::Application.routes.draw do
   resources :comments
   resources :photos do
     resources :comments
+    collection { post :sort }
     member { post :vote }
   end
 
