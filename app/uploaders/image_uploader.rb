@@ -57,15 +57,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   
   version :small do
-    process :resize_to_fit => [400, 300]
+    process :resize_to_limit => [400, 300]
     #process :resize_and_pad => [400, 300, "#000000"]
   end
   version :medium do
-    process :resize_to_fit => [800, 600]
+    process :resize_to_limit => [800, 600]
     #process :resize_and_pad => [800, 600, "#000000"]
   end
   version :max do
-    process :resize_to_fit => [800, 600]
+    process :resize_to_limit => [800, 600]
     #process :resize_and_pad => [800, 600, "#000000"]
   end
 
