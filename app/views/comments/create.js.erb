@@ -1,4 +1,4 @@
 
-$('input, textarea').each(function() { $(this).val($(this).attr('title')); });
+$('input[type=text], textarea').each(function() { $(this).val($(this).attr('title')); });
 $('#commentsnum_<%= @comment.photo_id %>').text('Kommentare (<%= @photo.comments.count %>)');
 $('#commentlist_<%= @comment.photo_id %>').append('<%= j render(@comment) %>');

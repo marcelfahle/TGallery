@@ -44,26 +44,29 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   version :thumb_large do
     #process :resize_to_fill => [THUMB_LARGE_SIZE, THUMB_LARGE_SIZE]
-    process :resize_and_pad => [THUMB_LARGE_SIZE, THUMB_LARGE_SIZE, "#000000"]
+    #process :resize_and_pad => [THUMB_LARGE_SIZE, THUMB_LARGE_SIZE, "#000000"]
   end
   version :thumb_medium do
-    # process :resize_to_fill => [THUMB_MEDIUM_SIZE, THUMB_MEDIUM_SIZE]
-    process :resize_and_pad => [THUMB_MEDIUM_SIZE, THUMB_MEDIUM_SIZE, "#000000"]
+    process :resize_to_fill => [THUMB_MEDIUM_SIZE, THUMB_MEDIUM_SIZE]
+    #process :resize_and_pad => [THUMB_MEDIUM_SIZE, THUMB_MEDIUM_SIZE, "#000000"]
   end
   version :thumb_small do
-    # process :resize_to_fill => [THUMB_SMALL_SIZE, THUMB_SMALL_SIZE]
-    process :resize_and_pad => [THUMB_SMALL_SIZE, THUMB_SMALL_SIZE, "#000000"]
+    process :resize_to_fill => [THUMB_SMALL_SIZE, THUMB_SMALL_SIZE]
+    #process :resize_and_pad => [THUMB_SMALL_SIZE, THUMB_SMALL_SIZE, "#000000"]
   end
   
   
   version :small do
-    process :resize_to_limit => [400, 300]
+    #process :resize_to_limit => [400, 300]
+    process :resize_and_pad => [400, 300, "#000000"]
   end
   version :medium do
-    process :resize_to_limit => [800, 600]
+    #process :resize_to_limit => [800, 600]
+    process :resize_and_pad => [800, 600, "#000000"]
   end
   version :max do
-    process :resize_to_limit => [1200, 900]
+    #process :resize_to_limit => [1200, 900]
+    process :resize_and_pad => [800, 600, "#000000"]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
