@@ -8,6 +8,7 @@ class Photo < ActiveRecord::Base
   has_many :photo_votes, dependent: :destroy
 
   validates :owner, length: { maximum: 40 }
+  validates :caption, length: { maximum: 140 }
 
 
   def self.by_votes
