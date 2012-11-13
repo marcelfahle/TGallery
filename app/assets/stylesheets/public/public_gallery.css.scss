@@ -102,6 +102,16 @@ body {
 }
 .img {
   float: left;
+  background: #000;
+  min-width: 800px;
+  min-height: 800px;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  img {
+    display:block;
+    margin:auto;
+  }
 
 }
 .fancybox-inner {

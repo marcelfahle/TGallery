@@ -67,8 +67,7 @@
           </div>
         <% end %>
       </div>
-      <div class="img">
-        <%= image_tag photo.image_url(:max).to_s %>
+      <div class="img" style="background-image: url('<%= photo.image_url(:max).to_s %>')">
       </div>
     </div>
   <% end %>
