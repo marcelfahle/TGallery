@@ -13,12 +13,28 @@
       <%= f.text_field :owner, :class => 'text_field' %>
     </div>
   </div>
+
   <div class="control-group">
     <%= f.label :image, :class => 'control-label' %>
     <div class="controls">
       <%= f.file_field :image, :class => 'text_field' %>
     </div>
   </div>
+
+  <div class="control-group">
+    <%= f.label :video, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :video, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :is_video, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :is_video, :class => 'check_box' %>
+    </div>
+  </div>
+
   <div class="control-group">
     <%= f.label :is_active, :class => 'control-label' %>
     <div class="controls">
@@ -33,33 +49,40 @@
   </div>
 <% end %>
 
-<h3>Kommentare</h3>
- 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Kommentar</th>
-      <th>Author</th>
-      <th>Datum</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @photo.comments.each do |comment| %>
+
+
+<% if @photo.comments.any? %>
+
+  <h3>Kommentare</h3>
+   
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= comment.id %></td>
-        <td><%= comment.text %></td>
-        <td><%= comment.author_name %></td>
-        <td><%=l comment.created_at %></td>
-        <td>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      photo_comment_path(@photo, comment),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <th>ID</th>
+        <th>Kommentar</th>
+        <th>Author</th>
+        <th>Datum</th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @photo.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.id %></td>
+          <td><%= comment.text %></td>
+          <td><%= comment.author_name %></td>
+          <td><%=l comment.created_at %></td>
+          <td>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        photo_comment_path(@photo, comment),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-mini btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+

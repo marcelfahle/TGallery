@@ -1,8 +1,9 @@
 class Photo < ActiveRecord::Base
   acts_as_list
 
-  attr_accessible :caption, :image, :is_active, :owner
+  attr_accessible :caption, :image, :is_active, :owner, :video
   mount_uploader :image, ImageUploader
+  mount_uploader :video, VideoUploader
   belongs_to :gallery
   has_many :comments, dependent: :destroy
   has_many :photo_votes, dependent: :destroy

@@ -11,7 +11,18 @@
 
   <%= form_for @photo, :url => pupload_path, :html => { :class => 'form-horizontal' } do |f| %>
     <input type="hidden" name="gallery_id" value="<%=params[:id] %>" />
-    <input type="hidden" name="[photo]is_active" value="true" />
+    <input type="hidden" name="[photo]is_active" value="false" />
+
+    <div class="control-group">
+      <label class="control-label">Typ</label>
+      <div class="controls">
+        <div class="btn-group">
+          <button class="btn">Foto</button>
+          <button class="btn">Video</button>
+        </div>
+      </div>
+    </div>
+
     <div class="control-group">
       <%= f.label :caption, "Beschreibung", :class => 'control-label' %>
       <div class="controls">
@@ -30,7 +41,12 @@
         <%= f.file_field :image, :class => 'text_field' %>
       </div>
     </div>
-
+    <div class="control-group">
+      <%= f.label :video, "Ihr Foto", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :video, :class => 'text_field' %>
+      </div>
+    </div>
     <div class="form-actions form-actions-transparent">
       <%= f.submit 'Upload', :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => "Abbrechen"),
