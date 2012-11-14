@@ -20,7 +20,9 @@ DEVDeploy::Application.routes.draw do
     resources :galleries
   end
 
-  match 'gallery/:id', :to => 'galleries#public'
+  match 'gallery/:id', :to => 'galleries#public', as: 'public_gallery'
+  get 'gallery/:id/upload', :to => 'photos#new_public',as: 'upload'
+  post 'pupload', :to => 'photos#create_public', as: 'pupload'
 
 
   # The priority is based upon order of creation:

@@ -36,6 +36,17 @@ class PhotosController < ApplicationController
   end
 
 
+  def new_public
+    @gallery = Gallery.find(params[:id])
+    @photo = Photo.new    
+    
+    #@photo = Photo.new
+
+    respond_to do |format|
+      format.html { render :layout => "public" }
+      format.json { render json: @photo }
+    end
+  end
 
   # GET /photos/1/edit
   def edit
@@ -60,6 +71,27 @@ class PhotosController < ApplicationController
       end
     end
   end
+
+
+  def create_public
+    @gallery = Gallery.find(params[:gallery_id])
+    @photo = @gallery.photos.new(params[:photo])
+
+    respond_to do |format|
+      if @photo.save
+        format.html { redirect_to gallery_path(@gallery), notice: 'Photo was successfully created.' }
+        format.json { render json: @photo, status: :created, location: @photo }
+      else
+        flash[:error] = @photo.errors.empty? ? "Error" : @photo.errors.full_messages.to_sentence
+        #flash.now[:error] = "Error"
+        format.html { render action: "new" }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
 
   # PUT /photos/1
   # PUT /photos/1.json
