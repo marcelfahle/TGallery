@@ -58,8 +58,10 @@
           </div>
         <% end %>
         
-        <% if photo.owner != "" %>
-          <strong><%= truncate(photo.owner, :length => trun_name, :omission => "...")  %></strong><br />
+        <% if @gallery.show_names%>
+          <% if photo.owner != ""  %>
+            <strong><%= truncate(photo.owner, :length => trun_name, :omission => "...")  %></strong><br />
+          <% end %>
         <% end %>
         <%= truncate(photo.caption, :length => trun_desc, :ommision => "...") %>
       </div>
