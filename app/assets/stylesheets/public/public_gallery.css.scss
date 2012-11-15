@@ -126,6 +126,8 @@ body {
   width: 180px;
   overflow-y: scroll;
   font-size: 12px;
+  max-height: 600px;
+  <* needs work for 300px version */
 
   .owner {
     p {
