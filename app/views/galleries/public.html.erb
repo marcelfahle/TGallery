@@ -1,10 +1,3 @@
-<div class="wrapper" style="background: <%= @gallery.background_color.to_s %> url('<%= @gallery.background_url.to_s %>') top center no-repeat; padding-top: <%= @gallery.top_margin %>@px; width: <%= @gallery.site_width %>@px; margin: 0 auto;">
-  <% if @gallery.show_headline %>
-    <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
-  <% end %>
-
-
-  <%- model_class = Photo -%>
   <%
     case @gallery.thumb_size
       when "large"
@@ -44,6 +37,18 @@
     end
   %>
   <style type="text/css">
+    .wrapper {
+      background: <%= @gallery.background_color.to_s %> url('<%= @gallery.background_url.to_s %>') top center no-repeat;
+      width: <%= @gallery.site_width %>px;
+      margin: 0 auto;
+    }
+    .meta {
+      text-align: right;
+      margin-bottom: <%= @gallery.top_margin %>px;
+      height: 20px;
+      padding-right: 10px;
+      
+    }
     .thumbwrapper {
       color: <%= @gallery.text_color %>;
       width: <%= tw %>px;
@@ -64,6 +69,21 @@
     }
 
   </style>
+
+
+
+
+
+<div class="wrapper">
+  <div class="meta">
+    <a href="mailto:m.fahle@gmail.com" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
+  </div>
+  <% if @gallery.show_headline %>
+    <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
+  <% end %>
+
+
+  <%- model_class = Photo -%>
 
 
 

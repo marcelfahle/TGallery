@@ -1,5 +1,5 @@
 
-$('#voteswrapper_<%=@photo.id %>').hide();
-$('#voteswrapper_<%=@photo.id %>_novote').show();
+$('.voteswrapper').hide();
+$('.voteswrapper_novote').show();
 
 $('.votes_for_<%= @photo.id %>').text('<%=@photo.photo_votes.count %>');

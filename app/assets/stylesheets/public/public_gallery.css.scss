@@ -127,7 +127,7 @@ body {
   overflow-y: scroll;
   font-size: 12px;
   max-height: 600px;
-  <* needs work for 300px version */
+  /* needs work for 300px version */
 
   .owner {
     p {
@@ -153,7 +153,7 @@ body {
       height: 20px;
       display: inline-block;
       color: #000;
-      background: transparent url('/assets/like_small.gif') 86px 0px no-repeat;
+      background: transparent url('/assets/like_small.gif') 77px 0px no-repeat;
       
       span {
         margin-left: 26px;

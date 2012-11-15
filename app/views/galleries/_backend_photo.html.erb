@@ -1,0 +1,33 @@
+<%= content_tag_for(:li, photo, class: "span3 thumblistitem") do %>
+      <%
+        if photo.is_active
+          lbl = "<span class='label label-success'>Aktiv</span>"
+          st_class= "thumbactive"
+        else
+          lbl = "<span class='label'>Inaktiv</span>"
+          st_class= "thumbinactive"
+        end
+      %>
+    <div class="thumbnail <%=st_class %>">
+    <%= image_tag photo.image_url(:backend_thumb).to_s %>
+    <div class="caption">
+      <p class="imgstatus">
+        <%= lbl.html_safe %> 
+        <span class="badge badge-info"><%= photo.votes %> Likes</span>
+        <span class="badge badge-info"><%= photo.comments.count %> Kommentare</span>
+      </p>
+      <p><strong><%= truncate(photo.owner, :length => 24, :omission => "...") %></strong></p>
+      <p><%= truncate(photo.caption, :length => 120, :omission => "...") %></p>
+      <p class="imgcontrols">
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          edit_photo_path(photo, :gallery_id => @gallery.id), :class => 'btn ' %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          photo_path(photo, :gallery_id => @gallery.id),
+                    :method => :delete,
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger'
+                     %>
+      </p>
+    </div>
+  </div>
+<% end %>
