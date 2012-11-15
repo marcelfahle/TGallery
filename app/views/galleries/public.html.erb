@@ -12,21 +12,25 @@
         @px = THUMB_LARGE_SIZE
         @trun_name = 50
         @trun_desc = 200
+        @uploadimg = "/assets/uploadimg_300.jpg"
       when "medium"
         @tsize = :thumb_medium
         @px = THUMB_MEDIUM_SIZE
         @trun_name = 24
         @trun_desc = 55
+        @uploadimg = "/assets/uploadimg_160.jpg"
       when "small"
         @tsize = :thumb_small
         @px = THUMB_SMALL_SIZE
         @trun_name = 13
         @trun_desc = 20
+        @uploadimg = "/assets/uploadimg_100.jpg"
       else
         @tsize = :thumb_large
         @px = THUMB_LARGE_SIZE
         @trun_name = 50
         @trun_desc = 200
+        @uploadimg = "/assets/uploadimg_300.jpg"
       end
     # total width
     tw = @px + (@gallery.photo_border_width * 2)
@@ -65,7 +69,11 @@
 
   <ul>
     <li>
-      <div class="thumbwrapper" style="color: <%= @gallery.text_color %>;" >
+      <div class="thumbwrapper">
+        <a href="<%= upload_url %>" class="noimglightboxopener">
+          <img src="/assets/transp.gif" class="transpoverlay" />
+        </a>
+        <img src="<%= @uploadimg %>" width="" height="" class="thumbnail" />
       </div>
     </li>
     <% if @gallery.has_rating? %>
