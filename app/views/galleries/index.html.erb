@@ -9,6 +9,7 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:background) %></th>
+      <th>Photos</th>
       <th>Ratings</th>
       <th>Comments</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -25,6 +26,7 @@
         <% else %>
           <td></td>
         <% end %>
+        <td><%= gallery.photos.count %></td>
         <td><%= gallery.has_rating %></td>
         <td><%= gallery.has_comments %></td>
         <td>

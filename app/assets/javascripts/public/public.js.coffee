@@ -29,7 +29,11 @@ $ ->
 
 
   # textfield limit
-  $('.commentfield').limit('250','.charsleft');
+  if $('#photo_caption').length > 0
+    $('#photo_caption').limit('500','.publiccharsleft');
+
+  if $('.commentfield').length > 0
+    $('.commentfield').limit('250','.charsleft');
 
   #$('.new_comment').submit ->
     
