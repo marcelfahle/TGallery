@@ -5,7 +5,9 @@
     <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
   <% end %>
 
-  <p class="instructions"><%= @gallery.instructions.html_safe %></p>
+  <% if @gallery.instructions %>
+    <p class="instructions"><%= @gallery.instructions.html_safe %></p>
+  <% end %>
 
 
 
