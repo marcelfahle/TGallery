@@ -1,51 +1,12 @@
 <li>
-
-<%
-  case @gallery.thumb_size
-    when "large"
-      tsize = :thumb_large
-      px = THUMB_LARGE_SIZE
-      trun_name = 50
-      trun_desc = 200
-    when "medium"
-      tsize = :thumb_medium
-      px = THUMB_MEDIUM_SIZE
-      trun_name = 24
-      trun_desc = 55
-    when "small"
-      tsize = :thumb_small
-      px = THUMB_SMALL_SIZE
-      trun_name = 13
-      trun_desc = 20
-    else
-      tsize = :thumb_large
-      px = THUMB_LARGE_SIZE
-      trun_name = 50
-      trun_desc = 200
-    end
-  # total width
-  tw = px + (@gallery.photo_border_width * 2)
-  border_color = @gallery.photo_border_color
-  if @gallery.photo_border == false
-    border_width = 0
-    tw = px
-  else
-    border_width = @gallery.photo_border_width
-    tw = px + (@gallery.photo_border_width * 2)
-  end
-%>
-<div class="thumbwrapper" style="color: <%= @gallery.text_color %>; width: <%=tw %>px; ">
+<div class="thumbwrapper">
   <a href="#lb_<%=photo.id %>" class="imglightboxopener" rel="grp<%=@gallery.id %>">
-    <%= image_tag("/assets/transp.gif", :width => "#{px}px", :height => "100%", :class => "transpoverlay") %>
+    <%= image_tag("/assets/transp.gif", :class => "transpoverlay") %>
   </a>
-  <%= image_tag(photo.image_url(tsize).to_s, 
-                  :style => " border-style: solid; 
-                              border-color: #{border_color}; 
-                              border-width: #{border_width}px;",
+  <%= image_tag(photo.image_url(@tsize).to_s, 
                   :class => "thumbnail")  %>
     
-      <div class="thumbcaption" 
-        style=" left: <%= border_width  %>px; bottom: <%= border_width %>px; width: <%=px-12 %>px">
+      <div class="thumbcaption">
 
         <% if @gallery.has_comments? or @gallery.has_rating? %>
           <div class="photostats">
@@ -60,10 +21,10 @@
         
         <% if @gallery.show_names%>
           <% if photo.owner != ""  %>
-            <strong><%= truncate(photo.owner, :length => trun_name, :omission => "...")  %></strong><br />
+            <strong><%= truncate(photo.owner, :length => @trun_name, :omission => "...")  %></strong><br />
           <% end %>
         <% end %>
-        <%= truncate(photo.caption, :length => trun_desc, :ommision => "...") %>
+        <%= truncate(photo.caption, :length => @trun_desc, :ommision => "...") %>
       </div>
   </div>
 </li>

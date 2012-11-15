@@ -1,12 +1,73 @@
-<div class="wrapper" style="background: <%= @gallery.background_color.to_s %> url('<%= @gallery.background_url.to_s %>') top center no-repeat; padding-top: <%= @gallery.top_margin %>px; width: <%= @gallery.site_width %>px; margin: 0 auto;">
+<div class="wrapper" style="background: <%= @gallery.background_color.to_s %> url('<%= @gallery.background_url.to_s %>') top center no-repeat; padding-top: <%= @gallery.top_margin %>@px; width: <%= @gallery.site_width %>@px; margin: 0 auto;">
   <% if @gallery.show_headline %>
     <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
   <% end %>
 
 
   <%- model_class = Photo -%>
-  <!-- thumbnails //-->
+  <%
+    case @gallery.thumb_size
+      when "large"
+        @tsize = :thumb_large
+        @px = THUMB_LARGE_SIZE
+        @trun_name = 50
+        @trun_desc = 200
+      when "medium"
+        @tsize = :thumb_medium
+        @px = THUMB_MEDIUM_SIZE
+        @trun_name = 24
+        @trun_desc = 55
+      when "small"
+        @tsize = :thumb_small
+        @px = THUMB_SMALL_SIZE
+        @trun_name = 13
+        @trun_desc = 20
+      else
+        @tsize = :thumb_large
+        @px = THUMB_LARGE_SIZE
+        @trun_name = 50
+        @trun_desc = 200
+      end
+    # total width
+    tw = @px + (@gallery.photo_border_width * 2)
+    border_color = @gallery.photo_border_color
+    if @gallery.photo_border == false
+      @border_width = 0
+      tw = @px
+    else
+      @border_width = @gallery.photo_border_width
+      tw = @px + (@gallery.photo_border_width * 2)
+    end
+  %>
+  <style type="text/css">
+    .thumbwrapper {
+      color: <%= @gallery.text_color %>;
+      width: <%= tw %>px;
+    }
+    img.transpoverlay {
+      width: <%=@px %>px;
+      height: 100%;
+    }
+    img.thumbnail {
+      border-style: solid;
+      border-color: <%=border_color %>;
+      border-width: <%=@border_width %>px;
+    }
+    .thumbcaption {
+      left: <%= @border_width %>px;
+      bottom: <%= @border_width %>px;
+      width: <%= @px-12 %>px;
+    }
+
+  </style>
+
+
+
   <ul>
+    <li>
+      <div class="thumbwrapper" style="color: <%= @gallery.text_color %>;" >
+      </div>
+    </li>
     <% if @gallery.has_rating? %>
       <% @gallery.photos.by_votes.each do |photo| %>
         <% if photo.is_active %>
