@@ -4,6 +4,7 @@ class Photo < ActiveRecord::Base
   attr_accessible :caption, :image, :is_active, :owner, :video
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader
+  mount_uploader :video_poster, VideoPosterUploader
   belongs_to :gallery
   has_many :comments, dependent: :destroy
   has_many :photo_votes, dependent: :destroy

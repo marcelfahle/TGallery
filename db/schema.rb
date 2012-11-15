@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115203815) do
+ActiveRecord::Schema.define(:version => 20121115222735) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -54,16 +54,17 @@ ActiveRecord::Schema.define(:version => 20121115203815) do
   end
 
   create_table "photos", :force => true do |t|
-    t.text     "caption",    :limit => 65536
+    t.text     "caption",      :limit => 65536
     t.string   "owner"
     t.string   "image"
     t.boolean  "is_active"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
     t.integer  "gallery_id"
     t.integer  "position"
     t.string   "video"
-    t.boolean  "is_video",                    :default => false
+    t.boolean  "is_video",                      :default => false
+    t.string   "video_poster"
   end
 
   create_table "users", :force => true do |t|
