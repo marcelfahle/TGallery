@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
   acts_as_list
 
-  attr_accessible :caption, :image, :is_active, :owner, :video
+  attr_accessible :caption, :image, :is_active, :owner, :video, :video_poster, :is_video
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader
   mount_uploader :video_poster, VideoPosterUploader
