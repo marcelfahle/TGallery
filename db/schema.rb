@@ -56,16 +56,16 @@ ActiveRecord::Schema.define(:version => 20121120080718) do
   end
 
   create_table "photos", :force => true do |t|
-    t.text     "caption",      :limit => 65536
+    t.text     "caption"
     t.string   "owner"
     t.string   "image"
     t.boolean  "is_active"
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "gallery_id"
     t.integer  "position"
     t.string   "video"
-    t.boolean  "is_video",                      :default => false
+    t.boolean  "is_video",     :default => false
     t.string   "video_poster"
     t.string   "owner_email"
   end
