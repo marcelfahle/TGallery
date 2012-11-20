@@ -75,6 +75,7 @@
             <script>jwplayer.key="QE7fpd76gOWvf3c2Zq0uOWO44opXjpQufIVahA=="</script>
             <script type="text/javascript">
               jwplayer("video_<%= photo.id %>").setup({
+                flashplayer:"<%=asset_path('jwplayer.flash.swf')%>",
                 file: "<%= photo.video %>",
                 image: "<%= photo.video_poster %>",
                 primary: "flash",
