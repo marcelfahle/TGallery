@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115222735) do
+ActiveRecord::Schema.define(:version => 20121120070816) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20121115222735) do
     t.string   "background_color",   :default => "#ffffff"
     t.text     "instructions"
     t.boolean  "show_names",         :default => false
+    t.text     "description"
   end
 
   create_table "photo_votes", :force => true do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20121115222735) do
     t.string   "video"
     t.boolean  "is_video",                      :default => false
     t.string   "video_poster"
+    t.string   "owner_email"
   end
 
   create_table "users", :force => true do |t|

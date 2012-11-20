@@ -3,3 +3,21 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      photo:
+        owner_email: "E-mail Adresse"
+        owner: "Name"
+        caption: "Beschreibung"
+        terms_of_service: "Nutzungsbedingungen"
+    errors:
+      models:
+        photo:
+          attributes:
+            owner_email:
+              blank: "fehlt"
+              invalid: "ist ungültig"
+            caption:
+              blank: "fehlt"
+            terms_of_service:
+              accepted: "müssen akzeptiert werden"

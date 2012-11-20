@@ -11,15 +11,34 @@
 
 
 
-  <%= form_for @photo, :url => pupload_path, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= form_for @photo, :url => { :action => :create_public, :id => params[:id] }, :html => { :class => 'form-horizontal' } do |f| %>
     <input type="hidden" name="gallery_id" value="<%=params[:id] %>" />
     <input type="hidden" name="[photo]is_active" value="false" />
 
+    <% if flash.count > 0 %>
+      <div class="control-group">
+        <div class="controls error">
+          <strong>Folgende Fehler sind beim Upload aufgetreten:</strong>
+          <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+                <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
 
     <div class="control-group">
       <%= f.label :owner, "Ihr Name:",  :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :owner, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :owner_email, "Ihre E-Mail Adresse:",  :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :owner_email, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group">
@@ -44,6 +63,11 @@
       <%= f.label :video, "Ihr Video", :class => 'control-label' %>
       <div class="controls">
         <%= f.file_field :video, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <label><%= f.check_box :terms_of_service %> Ich habe die Datenschutzhinweise zur Kenntnis genommen.</label>
       </div>
     </div>
     <div class="form-actions form-actions-transparent">

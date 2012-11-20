@@ -81,6 +81,9 @@
   <% if @gallery.show_headline %>
     <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
   <% end %>
+  <% unless @gallery.description.nil? %>
+    <p class="description" style="color: <%= @gallery.headline_color %>"><%= @gallery.description %></p>
+  <% end %>
 
 
   <%- model_class = Photo -%>

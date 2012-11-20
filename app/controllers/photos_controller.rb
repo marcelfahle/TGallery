@@ -84,7 +84,7 @@ class PhotosController < ApplicationController
       else
         flash[:error] = @photo.errors.empty? ? "Error" : @photo.errors.full_messages.to_sentence
         #flash.now[:error] = "Error"
-        format.html { render action: "new" }
+        format.html { render action: "new_public", :layout => "public" }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end

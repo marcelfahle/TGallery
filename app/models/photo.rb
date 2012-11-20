@@ -1,7 +1,8 @@
 class Photo < ActiveRecord::Base
   acts_as_list
 
-  attr_accessible :caption, :image, :is_active, :owner, :video, :video_poster, :is_video
+  attr_accessible :caption, :image, :is_active, :owner, :owner_email, :video, :video_poster, :is_video, :terms_of_service
+  
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader
   mount_uploader :video_poster, VideoPosterUploader
@@ -9,8 +10,11 @@ class Photo < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :photo_votes, dependent: :destroy
 
-  validates :owner, length: { maximum: 40 }
-  validates :caption, length: { maximum: 140 }
+  #validates :owner, length: { maximum: 40 }
+  validates :caption, presence: true, length: { maximum: 140 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :owner_email, presence: true, format: { with: VALID_EMAIL_REGEX }
+  validates_acceptance_of :terms_of_service
 
 
   def self.by_votes
