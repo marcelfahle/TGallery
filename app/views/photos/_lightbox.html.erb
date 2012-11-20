@@ -13,7 +13,7 @@
         </div>
         
         <% if @gallery.has_rating? %>
-          <% if !cookies["vt#{@gallery.id}"] %>
+          <% if !cookies["vt#{photo.id}"] %>
             <p class="voteswrapper" id="voteswrapper_<%=photo.id %>">
           <% else %>
             <p class="voteswrapper" id="voteswrapper_<%=photo.id %>" style="display: none;">
@@ -27,7 +27,7 @@
               <% end %>
             </p>
             
-          <% if !cookies["vt#{@gallery.id}"] %>
+          <% if !cookies["vt#{photo.id}"] %>
             <p class="voteswrapper voteswrapper_novote" id="voteswrapper_<%=photo.id %>_novote" style="display: none;">
           <% else %>
             <p class="voteswrapper voteswrapper_novote" id="voteswrapper_<%=photo.id %>_novote">
