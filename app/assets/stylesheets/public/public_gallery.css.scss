@@ -278,7 +278,14 @@ body {
   font-weight: bold;
   color: #000;
 }
-
+.commenttos {
+  a:link, a:visited {
+    color: #999;
+  }
+  a:hover, a:active {
+    color: #e20074;
+  }
+}
 
 .instructions {
   margin-top: 40px;
