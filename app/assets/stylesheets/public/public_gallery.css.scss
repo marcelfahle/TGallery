@@ -292,5 +292,14 @@ body {
   margin-bottom: 40px;
   margin-left: 20px;
 }
+.form-horizontal {
+  .control-group {
+
+  }
+  .control-label {
+    text-align: left;
+    padding-left: 20px;
+  }
+}
 .form-actions-transparent {
 }
