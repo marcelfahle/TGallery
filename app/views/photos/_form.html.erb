@@ -41,6 +41,26 @@
     </div>
   </div>
 
+  <% if @photo.is_video? && !@photo.video.nil? %>
+    <div class="control-group">
+      <div class="controls">
+        <div id="previewplayer">Loading the player...</div>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <script>jwplayer.key="QE7fpd76gOWvf3c2Zq0uOWO44opXjpQufIVahA=="</script>
+    <script type="text/javascript">
+      jwplayer("previewplayer").setup({
+        file: "<%= @photo.video %>",
+        image: "<%= @photo.video_poster %>",
+        primary: "flash",
+        width: 480,
+        height: 270
+      });
+    </script>
+  <% else %>
+  <% end %>
+
   <div class="control-group">
     <%= f.label :is_active, :class => 'control-label' %>
     <div class="controls">

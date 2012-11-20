@@ -3,8 +3,12 @@
   <a href="#lb_<%=photo.id %>" class="imglightboxopener" rel="grp<%=@gallery.id %>">
     <%= image_tag("/assets/transp.gif", :class => "transpoverlay") %>
   </a>
-  <%= image_tag(photo.image_url(@tsize).to_s, 
-                  :class => "thumbnail")  %>
+  <% if photo.is_video? && !photo.video.nil? %>
+    <%= image_tag(photo.video_poster_url(@tsize).to_s, :class => "thumbnail")  %>
+  <% else %>
+    <%= image_tag(photo.image_url(@tsize).to_s, :class => "thumbnail")  %>
+  <% end %>
+
     
       <div class="thumbcaption">
 

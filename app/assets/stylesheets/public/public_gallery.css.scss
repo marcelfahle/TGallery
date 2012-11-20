@@ -116,6 +116,20 @@ body {
   }
 
 }
+.videowrapper {
+  float: left;
+  background: #000;
+  min-width: 800px;
+  min-height: 600px;
+  width: 800px;
+  height: 600px;
+  .videoinner {
+    display: block;
+    width: 480px;
+    margin: 0 auto;
+    margin-top: 165px;
+  }
+}
 .fancybox-inner {
 }
 .comments {
@@ -243,11 +257,14 @@ body {
   overflow: hidden !important;
 }
 .fancybox-nav {
-  width: 30%;
+  width: 16%;
 
 }
 .fancybox-next {
-  right: 190px;
+  right: 200px;
+}
+.videowrapper {
+
 }
 
 

@@ -3,7 +3,7 @@
 class VideoPosterUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
@@ -11,8 +11,8 @@ class VideoPosterUploader < CarrierWave::Uploader::Base
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # storage :file
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -35,6 +35,46 @@ class VideoPosterUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  version :poster do
+    process :resize_to_fill => [480, 360]
+    #process :resize_and_pad => [THUMB_LARGE_SIZE, THUMB_LARGE_SIZE, "#000000"]
+  end
+  version :poster_backend_thumb do
+    process :resize_to_fill => [260, 173]
+    #process :resize_and_pad => [THUMB_LARGE_SIZE, THUMB_LARGE_SIZE, "#000000"]
+  end
+  version :backend_thumb do
+    process :resize_to_fill => [300, 200]
+  end
+  version :thumb do
+    process :resize_to_fill => [300, 300]
+  end
+  version :thumb_large do
+    process :resize_to_fill => [THUMB_LARGE_SIZE, THUMB_LARGE_SIZE]
+    #process :resize_and_pad => [THUMB_LARGE_SIZE, THUMB_LARGE_SIZE, "#000000"]
+  end
+  version :thumb_medium do
+    process :resize_to_fill => [THUMB_MEDIUM_SIZE, THUMB_MEDIUM_SIZE]
+    #process :resize_and_pad => [THUMB_MEDIUM_SIZE, THUMB_MEDIUM_SIZE, "#000000"]
+  end
+  version :thumb_small do
+    process :resize_to_fill => [THUMB_SMALL_SIZE, THUMB_SMALL_SIZE]
+    #process :resize_and_pad => [THUMB_SMALL_SIZE, THUMB_SMALL_SIZE, "#000000"]
+  end
+  
+  
+  version :small do
+    process :resize_to_limit => [400, 300]
+    #process :resize_and_pad => [400, 300, "#000000"]
+  end
+  version :medium do
+    process :resize_to_limit => [800, 600]
+    #process :resize_and_pad => [800, 600, "#000000"]
+  end
+  version :max do
+    process :resize_to_limit => [800, 600]
+    #process :resize_and_pad => [800, 600, "#000000"]
+  end
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process :scale => [50, 50]

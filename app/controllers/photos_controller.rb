@@ -79,7 +79,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to gallery_path(@gallery), notice: 'Photo was successfully created.' }
+        format.html { redirect_to public_gallery_path(@gallery), notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
       else
         flash[:error] = @photo.errors.empty? ? "Error" : @photo.errors.full_messages.to_sentence
