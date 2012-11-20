@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120070816) do
+ActiveRecord::Schema.define(:version => 20121120080718) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20121120070816) do
     t.text     "instructions"
     t.boolean  "show_names",         :default => false
     t.text     "description"
+    t.boolean  "is_active"
   end
 
   create_table "photo_votes", :force => true do |t|

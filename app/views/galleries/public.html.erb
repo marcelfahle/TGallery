@@ -74,47 +74,57 @@
 
 
 
+
+  <% if @gallery.is_active %>
+
 <div class="wrapper">
-  <div class="meta">
-    <a href="mailto:meineKollegen@telekom.de?subject=Interessante%20Seite%20im%20Intranet:%20<%=u @gallery.name %>" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
-  </div>
-  <% if @gallery.show_headline %>
-    <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
-  <% end %>
-  <% unless @gallery.description.nil? %>
-    <p class="description" style="color: <%= @gallery.headline_color %>"><%= @gallery.description %></p>
-  <% end %>
 
-
-  <%- model_class = Photo -%>
-
-
-
-  <ul>
-    <li>
-      <div class="thumbwrapper">
-        <a href="<%= upload_url %>" class="noimglightboxopener">
-          <img src="/assets/transp.gif" class="transpoverlay" />
-        </a>
-        <img src="<%= @uploadimg %>" width="" height="" class="thumbnail" />
-      </div>
-    </li>
-    <% if @gallery.has_rating? %>
-      <% @gallery.photos.by_votes.each do |photo| %>
-        <% if photo.is_active %>
-          <%= render photo %>
-        <% end %>
-      <% end %>
-    <% else %>
-      <% @gallery.photos.order("position").each do |photo| %>
-        <% if photo.is_active %>
-          <%= render photo %>
-        <% end %>
-      <% end %>
+    <div class="meta">
+      <a href="mailto:meineKollegen@telekom.de?subject=Interessante%20Seite%20im%20Intranet:%20<%=u @gallery.name %>" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
+    </div>
+    <% if @gallery.show_headline %>
+      <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
     <% end %>
-  </ul>   
+    <% unless @gallery.description.nil? %>
+      <p class="description" style="color: <%= @gallery.headline_color %>"><%= @gallery.description %></p>
+    <% end %>
+
+
+    <%- model_class = Photo -%>
+
+
+
+    <ul>
+      <li>
+        <div class="thumbwrapper">
+          <a href="<%= upload_url %>" class="noimglightboxopener">
+            <img src="/assets/transp.gif" class="transpoverlay" />
+          </a>
+          <img src="<%= @uploadimg %>" width="" height="" class="thumbnail" />
+        </div>
+      </li>
+      <% if @gallery.has_rating? %>
+        <% @gallery.photos.by_votes.each do |photo| %>
+          <% if photo.is_active %>
+            <%= render photo %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% @gallery.photos.order("position").each do |photo| %>
+          <% if photo.is_active %>
+            <%= render photo %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>   
+      
     
-  
-  <!-- lightboxes //-->
-  <%= render "photos/lightbox"  %>
-</div>
+    <!-- lightboxes //-->
+    <%= render "photos/lightbox"  %>
+  </div>
+
+  <% else %>
+
+    <p class="notvalid">Dieser Link ist ungültig</p>
+  <% end %>
+
