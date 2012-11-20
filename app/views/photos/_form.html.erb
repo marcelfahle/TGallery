@@ -7,6 +7,12 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :owner_email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :owner_email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :caption, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :caption, :class => 'text_field', rows: 4 %>
@@ -66,6 +72,13 @@
     <%= f.label :is_active, :class => 'control-label' %>
     <div class="controls">
       <%= f.check_box :is_active, :class => 'check_box' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :terms_of_service, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :terms_of_service, :class => 'check_box' %>
     </div>
   </div>
 
