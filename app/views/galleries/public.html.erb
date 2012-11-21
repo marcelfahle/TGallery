@@ -80,7 +80,7 @@
     <div class="wrapper">
 
       <div class="meta">
-        <a href="mailto:meineKollegen@telekom.de?subject=Interessante%20Seite%20im%20Intranet:%20<%=u @gallery.name %>" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
+        <a href="mailto:meineKollegen@telekom.de?subject=Interessante%20Seite%20im%20Intranet:%20<%=u @gallery.name %>&body=Hier%20der%20Link:%20<%= "#{request.protocol}#{request.host_with_port}/gallery/#{@gallery.id}" %>" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
       </div>
       <% if @gallery.show_headline %>
         <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
