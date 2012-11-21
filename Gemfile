@@ -33,6 +33,7 @@ gem 'carrierwave'
 #gem 'fog'
 gem 'acts_as_list'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'redcarpet'
 
 group :test do
   #gem 'capybara', '1.1.2'

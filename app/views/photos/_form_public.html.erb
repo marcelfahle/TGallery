@@ -6,7 +6,7 @@
   <% end %>
 
   <% if @gallery.instructions %>
-    <p class="instructions"><%= @gallery.instructions.html_safe %></p>
+    <div class="instructions"><%= markdown @gallery.instructions.html_safe %></div>
   <% end %>
 
 
@@ -67,7 +67,7 @@
     </div>
     <div class="control-group">
       <div class="controls">
-        <label><%= f.check_box :terms_of_service %> Ich habe die Datenschutzhinweise zur Kenntnis genommen.</label>
+        <label><%= f.check_box :terms_of_service %> <%= markdown @gallery.tos_text %></label>
       </div>
     </div>
     <div class="form-actions form-actions-transparent">
