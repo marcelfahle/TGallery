@@ -11,7 +11,7 @@ class Photo < ActiveRecord::Base
   has_many :photo_votes, dependent: :destroy
 
   #validates :owner, length: { maximum: 40 }
-  validates :caption, presence: true, length: { maximum: 140 }
+  validates :caption, presence: true, length: { maximum: 499 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :owner_email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates_acceptance_of :terms_of_service
