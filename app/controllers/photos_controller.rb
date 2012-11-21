@@ -96,6 +96,7 @@ class PhotosController < ApplicationController
   # PUT /photos/1
   # PUT /photos/1.json
   def update
+    @gallery = Gallery.find(params[:gallery_id])
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
