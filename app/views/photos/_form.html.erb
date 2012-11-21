@@ -23,6 +23,12 @@
     <%= f.label :image, :class => 'control-label' %>
     <div class="controls">
       <%= f.file_field :image, :class => 'text_field' %>
+      <% unless @photo.image.blank? %>
+        <div class="download-image-original">
+          <%= image_tag @photo.image_url(:thumb_small)%>
+          <a href="<%= @photo.image.url %>" class="btn btn-mini" target="_blank">Download Full</a>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -37,6 +43,12 @@
     <%= f.label :video_poster, :class => 'control-label' %>
     <div class="controls">
       <%= f.file_field :video_poster, :class => 'text_field' %>
+      <% unless @photo.video_poster.blank? %>
+        <div class="download-image-original">
+          <%= image_tag @photo.video_poster_url(:thumb_small) %>
+          <a href="<%= @photo.video_poster.url %>" class="btn btn-mini" target="_blank">Download Full</a>
+        </div>
+      <% end %>
     </div>
   </div>
 

@@ -26,3 +26,17 @@
 .thumbinactive p {
   color: #aaa;
 }
+
+.download-image-original {
+  position: relative; 
+  width: 140px;
+
+  img {
+
+  }
+  a {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+  }
+}
