@@ -13,5 +13,6 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/tmp
 /public/uploads
+/public/files_from_emails/*
+/tmp

@@ -1,5 +1,7 @@
 DEVDeploy::Application.routes.draw do
 
+  resources :emails
+
   root :to => 'galleries#index'
   
   get 'signup123', to: 'users#new', as: 'signup'

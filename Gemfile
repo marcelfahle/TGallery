@@ -27,13 +27,13 @@ end
 gem 'twitter-bootstrap-rails', '2.1.3'
 gem 'jquery-rails', '2.0.2'
 gem 'heroku'
-#gem 'rmagick'
 gem 'mini_magick'
 gem 'carrierwave'
 #gem 'fog'
 gem 'acts_as_list'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'redcarpet'
+gem 'mailman', require: false
 
 group :test do
   #gem 'capybara', '1.1.2'

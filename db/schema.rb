@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121071704) do
+ActiveRecord::Schema.define(:version => 20121122090536) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(:version => 20121121071704) do
   end
 
   add_index "comments", ["photo_id", "created_at"], :name => "index_comments_on_photo_id_and_created_at"
+
+  create_table "emails", :force => true do |t|
+    t.string   "from"
+    t.string   "to"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "image_thumb"
+    t.string   "image_full"
+  end
 
   create_table "galleries", :force => true do |t|
     t.string   "name"
