@@ -5,6 +5,7 @@ class GalleriesController < ApplicationController
   # GET /galleries.json
   def index
     @galleries = Gallery.all
+    @emails = Email.all
 
     respond_to do |format|
       format.html # index.html.erb
