@@ -3,22 +3,18 @@ require 'rubygems'
 require 'bundler/setup'
 require 'mailman'
 require 'net/imap'
-require 'mail'
 
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 Mailman.config.ignore_stdin = true
 Mailman.config.logger = Logger.new File.expand_path("../../log/mailman.log", __FILE__)
 Mailman.config.poll_interval = 20
-Mailman.config.imap = {
-  server:   "imap-suedwest.telekom.de",
-  port:     993,
-  ssl:      true,
-  username: "",
-  password: ""
+Mailman.config.pop3 = {
+  server:   "steelpuck.com", 
+  port:     110, 
+  ssl:      false,
+  username: "test@steelpuck.com",
+  password: "testtest"
 }
-
-
 
 Mailman::Application.run do
   default do
