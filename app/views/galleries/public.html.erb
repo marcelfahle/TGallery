@@ -77,58 +77,63 @@
 
   <% if @gallery.is_active %>
 
-    <div class="wrapper">
+    <% if @gallery.site_width < 600 %>
+      <div class="wrapper narrow">
+    <% else %>
+      <div class="wrapper">
+    <% end %>
 
-      <div class="meta">
-        <a href="mailto:meineKollegen@telekom.de?subject=Interessante%20Seite%20im%20Intranet:%20<%=u @gallery.name %>&body=Hier%20der%20Link:%20<%= "#{request.protocol}#{request.host_with_port}/gallery/#{@gallery.id}" %>" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
-      </div>
 
-      <% if flash[:notice] %>
-        <div class="alert alert-success">
-          <div id="flash_notice"><%= markdown flash[:notice] %></div>
+        <div class="meta">
+          <a href="mailto:meineKollegen@telekom.de?subject=Interessante%20Seite%20im%20Intranet:%20<%=u @gallery.name %>&body=Hier%20der%20Link:%20<%= "#{request.protocol}#{request.host_with_port}/gallery/#{@gallery.id}" %>" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
         </div>
-      <% end %>
-      
-      <% if @gallery.show_headline %>
-        <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
-      <% end %>
-      <% unless @gallery.description.nil? %>
-        <div class="description" style="color: <%= @gallery.headline_color %>"><%= markdown @gallery.description %></div>
-      <% end %>
 
-
-      <%- model_class = Photo -%>
-
-
-
-      <ul>
-        <li>
-          <div class="thumbwrapper">
-            <a href="<%= upload_url %>" class="noimglightboxopener">
-              <img src="/assets/transp.gif" class="transpoverlay" />
-            </a>
-            <img src="<%= @uploadimg %>" width="" height="" class="thumbnail" />
+        <% if flash[:notice] %>
+          <div class="alert alert-success">
+            <div id="flash_notice"><%= markdown flash[:notice] %></div>
           </div>
-        </li>
-        <% if @gallery.has_rating? %>
-          <% @gallery.photos.by_votes.each do |photo| %>
-            <% if photo.is_active %>
-              <%= render photo %>
-            <% end %>
-          <% end %>
-        <% else %>
-          <% @gallery.photos.order("position").each do |photo| %>
-            <% if photo.is_active %>
-              <%= render photo %>
-            <% end %>
-          <% end %>
         <% end %>
-      </ul>   
         
-      
-      <!-- lightboxes //-->
-      <%= render "photos/lightbox"  %>
-    </div>
+        <% if @gallery.show_headline %>
+          <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
+        <% end %>
+        <% unless @gallery.description.nil? %>
+          <div class="description" style="color: <%= @gallery.headline_color %>"><%= markdown @gallery.description %></div>
+        <% end %>
+
+
+        <%- model_class = Photo -%>
+
+
+
+        <ul>
+          <li>
+            <div class="thumbwrapper">
+              <a href="<%= upload_url %>" class="noimglightboxopener">
+                <img src="/assets/transp.gif" class="transpoverlay" />
+              </a>
+              <img src="<%= @uploadimg %>" width="" height="" class="thumbnail" />
+            </div>
+          </li>
+          <% if @gallery.has_rating? %>
+            <% @gallery.photos.by_votes.each do |photo| %>
+              <% if photo.is_active %>
+                <%= render photo %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <% @gallery.photos.order("position").each do |photo| %>
+              <% if photo.is_active %>
+                <%= render photo %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>   
+          
+        
+        <!-- lightboxes //-->
+        <%= render "photos/lightbox"  %>
+      </div>
 
   <% else %>
 

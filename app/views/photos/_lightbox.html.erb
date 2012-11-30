@@ -73,26 +73,49 @@
         <% end %>
       </div>
       <% if photo.is_video? && !photo.video.nil? %>
-        <div class="videowrapper">
+        <% if @gallery.site_width < 600 %>
+          <div class="videowrapper narrow">
+        <% else %>
+          <div class="videowrapper">
+        <% end %>
           <div class="videoinner">
             <div class="video" id="video_<%= photo.id %>">Loading the player...</div>
 
             <script>jwplayer.key="QE7fpd76gOWvf3c2Zq0uOWO44opXjpQufIVahA=="</script>
-            <script type="text/javascript">
-              jwplayer("video_<%= photo.id %>").setup({
-                flashplayer:"<%=asset_path('jwplayer.flash.swf')%>",
-                file: "<%= photo.video %>",
-                image: "<%= photo.video_poster %>",
-                primary: "flash",
-                width: 480,
-                height: 270
-              });
-            </script>
+
+            <% if @gallery.site_width < 600 %>
+              <script type="text/javascript">
+                jwplayer("video_<%= photo.id %>").setup({
+                  flashplayer:"<%=asset_path('jwplayer.flash.swf')%>",
+                  file: "<%= photo.video %>",
+                  image: "<%= photo.video_poster %>",
+                  primary: "flash",
+                  width: 340,
+                  height: 181
+                });
+              </script>
+            <% else %>
+              <script type="text/javascript">
+                jwplayer("video_<%= photo.id %>").setup({
+                  flashplayer:"<%=asset_path('jwplayer.flash.swf')%>",
+                  file: "<%= photo.video %>",
+                  image: "<%= photo.video_poster %>",
+                  primary: "flash",
+                  width: 480,
+                  height: 270
+                });
+              </script>
+
+            <% end %>
 
           </div>
         </div>
       <% else %>
-        <div class="img" style="background-image: url('<%= photo.image_url(:max).to_s %>')">
+        <% if @gallery.site_width >= 600 %> 
+          <div class="img" style="background-image: url('<%= photo.image_url(:max).to_s %>')">
+        <% else %>
+          <div class="img narrow" style="background-image: url('<%= photo.image_url(:small).to_s %>')">
+        <% end %>
       <% end %>
       </div>
     </div>

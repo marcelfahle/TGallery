@@ -27,6 +27,8 @@ class Email < ActiveRecord::Base
       msg = message.body.decoded.force_encoding("UTF-8")
     end
     # save in db
-    Email.create! subject: message.subject, body: msg, from: message.from.first, image_thumb: fnsmall, image_full: fn
+    unless message.subject[0,3].downcase == "re:"
+      Email.create! subject: message.subject, body: msg, from: message.from.first, image_thumb: fnsmall, image_full: fn
+    end
   end
 end

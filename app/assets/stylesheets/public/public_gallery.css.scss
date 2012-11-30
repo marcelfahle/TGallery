@@ -120,6 +120,11 @@ body {
   }
 
 }
+.narrow.img {
+  float: left;
+  min-width: 340px;
+  width: 340px !important;
+}
 .videowrapper {
   float: left;
   background: #000;
@@ -132,6 +137,18 @@ body {
     width: 480px;
     margin: 0 auto;
     margin-top: 165px;
+  }
+}
+.narrow.videowrapper {
+  min-width: 340px;
+  width: 340px;
+  .videoinner {
+    width: 340px;
+
+    video {
+      width: 340px;
+      height: 191px;
+    }
   }
 }
 .fancybox-inner {

@@ -1,10 +1,20 @@
 $ ->
-  $('.imglightboxopener').fancybox
-    fitToView: true
-    autoSize: true
-    closeClick: false
-    openEffect: 'none'
-    closeEffect: 'none'
+
+  if $('.wrapper').hasClass 'narrow'
+    $('.imglightboxopener').fancybox
+      fitToView: true
+      width: 550
+      maxWidth: 550
+      closeClick: false
+      openEffect: 'none'
+      closeEffect: 'none'
+  else
+    $('.imglightboxopener').fancybox
+      fitToView: true
+      autoSize: true
+      closeClick: false
+      openEffect: 'none'
+      closeEffect: 'none'
 
   $('.thumbwrapper h4, .img h3').wrapInner "<span>"
 
