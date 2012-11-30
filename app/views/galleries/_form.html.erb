@@ -45,21 +45,28 @@
       </div>
 
       <div class="control-group">
-        <%= f.label :description, :class => 'control-label' %>
+        <%= f.label :description, "Galerie-Beschreibung",  :class => 'control-label' %>
         <div class="controls">
           <%= f.text_area :description, :class => 'text_area input-xlarge', :rows => 5 %>
         </div>
       </div>
 
       <div class="control-group">
-        <%= f.label :instructions, :class => 'control-label' %>
+        <%= f.label :instructions, "Upload Instruktionen", :class => 'control-label' %>
         <div class="controls">
           <%= f.text_area :instructions, :class => 'text_area input-xlarge', :rows => 5 %>
         </div>
       </div>
 
       <div class="control-group">
-        <%= f.label :tos_text, :class => 'control-label' %>
+        <%= f.label :confirmation_text, "Upload Bestaetigung", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :confirmation_text, :class => 'text_area input-xlarge', :rows => 5 %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :tos_text, "Datenschutz-Link",  :class => 'control-label' %>
         <div class="controls">
           <%= f.text_area :tos_text, :class => 'text_area input-xlarge', :rows => 3 %>
         </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129234538) do
+ActiveRecord::Schema.define(:version => 20121130001404) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20121129234538) do
     t.text     "description"
     t.boolean  "is_active"
     t.string   "tos_text"
+    t.text     "confirmation_text"
   end
 
   create_table "photo_votes", :force => true do |t|
