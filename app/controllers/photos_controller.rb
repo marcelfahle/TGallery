@@ -79,7 +79,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-
+        InfoMailer.notification_mail.deliver
         format.html { redirect_to public_gallery_path(@gallery), notice: @gallery.confirmation_text }
         format.json { render json: @photo, status: :created, location: @photo }
       else
