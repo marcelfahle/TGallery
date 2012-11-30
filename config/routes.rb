@@ -20,10 +20,12 @@ DEVDeploy::Application.routes.draw do
 
   scope 'admin' do
     resources :galleries
+    match 'email/:id/gallery/:id', :to => 'emails#move_to', as: 'move_email'
   end
 
   match 'gallery/:id', :to => 'galleries#public', as: 'public_gallery'
   get 'gallery/:id/upload', :to => 'photos#new_public',as: 'upload'
+  get 'photo_from_email/:id/to/:gid', :to => 'photos#new_from_email',as: 'photo_from_email'
   post 'pupload', :to => 'photos#create_public', as: 'pupload'
 
 

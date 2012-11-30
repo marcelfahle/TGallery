@@ -13,4 +13,14 @@ class EmailsController < ApplicationController
     end
   end
 
+  def move_to
+    @email = Email.find(params[:id])
+
+    respond_to do |format| 
+      format.html { redirect_to galleries_path }
+      format.json { head :no_content }
+    end
+    p @email
+  end
+
 end

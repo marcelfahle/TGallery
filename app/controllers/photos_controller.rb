@@ -48,6 +48,46 @@ class PhotosController < ApplicationController
     end
   end
 
+  def new_from_email
+    puts Dir.pwd
+
+    @gallery = Gallery.find(params[:gid])
+    @email = Email.find(params[:id])
+
+    @photo = @gallery.photos.new
+    @photo.owner = @email.from
+    @photo.owner_email = @email.from
+    caption = @email.subject + "  \n  " + @email.body
+    @photo.caption = caption[0..450]
+    @photo.image = File.open(File.join(Rails.root,"public/#{@email.image_full}"))
+    #@photo.image.store!(File.open(File.join(Rails.root, @email.image_full)))
+    @photo.terms_of_service = "1"
+
+    # has to delete email too
+    #@email.destroy
+    
+
+    #@photo = Photo.new    
+    #
+    ##@photo = Photo.new
+
+    #respond_to do |format|
+    #  format.html { render :layout => "public" }
+    #  format.json { render json: @photo }
+    #end
+    respond_to do |format| 
+      if @photo.save
+        format.html { redirect_to galleries_path, notice: "Erfolgreich verschoben" }
+        format.json { head :no_content }
+      else
+        flash[:error] = @photo.errors.empty? ? "Error" : @photo.errors.full_messages.to_sentence
+        #flash.now[:error] = "Error"
+        format.html { redirect_to galleries_path }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
