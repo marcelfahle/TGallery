@@ -59,7 +59,7 @@
             <% @comment = photo.comments.build %>
             <%= form_for @comment, remote: true do |f| %>
               <%= f.text_field :author_name, title: "Ihr Name" %>
-              <%= f.text_area :text, :cols => 6, :rows => 2, title: "Kommentar", class: "commentfield" %>
+              <%= f.text_area :comment, :cols => 6, :rows => 2, title: "Kommentar", class: "commentfield" %>
               <%= f.hidden_field :photo_id, :value => photo.id %>
               <p class="charsleft" id="charsleft_<%=photo.id %>">250<p>
               <%= f.button "Absenden", type: "submit", class: "btn btn-small" %>

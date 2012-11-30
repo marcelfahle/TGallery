@@ -121,7 +121,7 @@
       <% @photo.comments.each do |comment| %>
         <tr>
           <td><%= comment.id %></td>
-          <td><%= comment.text %></td>
+          <td><%= comment.comment %></td>
           <td><%= comment.author_name %></td>
           <td><%=l comment.created_at %></td>
           <td>
