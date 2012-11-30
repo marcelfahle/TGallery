@@ -18,7 +18,7 @@
               <p class="photostats-comment"><%= photo.comments.count %></p>
             <% end %>
             <% if @gallery.has_rating? %>
-              <p class="photostats-like"><%= photo.votes %></p>
+              <p class="photostats-like"><%= photo.votes.floor %></p>
             <% end %>
           </div>
         <% end %>
