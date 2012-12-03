@@ -47,5 +47,7 @@ $ ->
 
   #$('.new_comment').submit ->
     
+  # TOS link target blank
+  $('.tos-link p a').attr('target', '_blank')
 
 

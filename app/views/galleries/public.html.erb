@@ -67,6 +67,10 @@
       bottom: <%= @border_width %>px;
       width: <%= @px-12 %>px;
     }
+    .description a {
+      color: <%= @gallery.text_color %>;
+      text-decoration: underline;
+    }
 
   </style>
 
@@ -98,7 +102,7 @@
           <h1 style="color: <%= @gallery.headline_color %>"><%= @gallery.name %></h1>
         <% end %>
         <% unless @gallery.description.nil? %>
-          <div class="description" style="color: <%= @gallery.headline_color %>"><%= markdown @gallery.description %></div>
+          <div class="description" style="color: <%= @gallery.text_color%>"><%= markdown @gallery.description %></div>
         <% end %>
 
 
