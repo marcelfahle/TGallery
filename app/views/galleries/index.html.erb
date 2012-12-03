@@ -71,8 +71,12 @@
         <td><%= email.subject %></td>
         <td><%= truncate(email.body.to_s, length: 500, omission: " ...") %></td>
         <td>
-          <% unless email.image_thumb == "" %>
+          <% if email.image_thumb != "" %>
             <img src="/<%= "#{email.image_thumb}" %>"  />
+          <% else %>
+            <% if email.download_link != "" %>
+              <a href="/<%= email.download_link %>">Download</a>
+            <% end %>
           <% end %>
         </td>
         <td>
