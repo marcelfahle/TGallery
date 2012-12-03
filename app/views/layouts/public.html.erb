@@ -5,15 +5,36 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
+  <meta content="V D" name="DCSext.dtg_board"/>
+  <meta content="DE" name="DCSext.dtg_country"/>
+  <meta content="TD" name="DCSext.dtg_group"/>
+  <meta content="2915" name="DCSext.dtg_ozt"/>
+  <meta content="de" name="DCSext.dtg_lang"/>
   <%= stylesheet_link_tag    "public", :media => "all" %>
   <%= javascript_include_tag "public" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="http://vsd.telekom.de/dtag/cms/contentblob/DTKS/un/970218/blobCode/6/dti-js.js" ></script>
+  <script type="text/javascript" src="http://webtrends-dtg.telekom.de/css_js/dtg.js" ></script>
 </head>
 <body>
 
 
   <%= yield %>
+
+  <script type="text/javascript">
+    var _tag=new WebTrends();
+    _tag.dcsGetId();
+  </script>
+  <script type="text/javascript">
+    _tag.dcsCollect();
+  </script>
+  <noscript>
+    <div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="https://wtpx-ghs-intranet.telekom.de/dcsa5malz000000g46ojil046_3w8t/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.3.0"/></div>
+  </noscript>
+  <!-- END OF SmartSource Data Collector TAG -->
+
+
 
 </body>
 </html>
