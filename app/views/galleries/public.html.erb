@@ -89,7 +89,8 @@
 
 
         <div class="meta">
-          <a href="mailto:meineKollegen@telekom.de?subject=Interessante%20Seite%20im%20Intranet:%20<%=u @gallery.name %>&body=Hallo,%0A%0A%20ich%20habe%20im%20VSD-Intranet%20eine%20interessante%20Mitarbeiteraktion%20gefunden.%20Vielleicht%20interessiert%20sie%20dich%20ja%20auch%20–%20es%20gibt%20auch%20etwas%20tolles%20zu%20gewinnen.%20Klick%20doch%20einfach%20mal%20rein:%20%0A%0A<%= "#{request.protocol}#{request.host_with_port}/gallery/#{@gallery.id}" %>" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
+          <% bodyline = "Hallo%2C%20%0Aich%20habe%20im%20VSD-Intranet%20eine%20interessante%20Mitarbeiteraktion%20gefunden.%20Vielleicht%20interessiert%20sie%20dich%20ja%20auch%20%E2%80%93%20es%20gibt%20auch%20etwas%20tolles%20zu%20gewinnen.%20Klick%20doch%20einfach%20mal%20rein%3A" %>
+          <a href="mailto:meineKollegen@telekom.de?subject=Interessante%20Seite%20im%20Intranet:%20<%=u @gallery.name %>&body=<%= bodyline %>%20%0A%0A<%= "#{request.protocol}#{request.host_with_port}/gallery/#{@gallery.id}" %>" title="Weiterempfehlen">Galerie Weiterempfehlen</a>
         </div>
 
         <% if flash[:notice] %>
