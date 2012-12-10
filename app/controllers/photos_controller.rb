@@ -59,7 +59,9 @@ class PhotosController < ApplicationController
     @photo.owner_email = @email.from
     caption = @email.subject + "  \n  " + @email.body
     @photo.caption = caption[0..450]
-    @photo.image = File.open(File.join(Rails.root,"public/#{@email.image_full}"))
+    if @email.image_full != ""
+      @photo.image = File.open(File.join(Rails.root,"public/#{@email.image_full}"))
+    end
     #@photo.image.store!(File.open(File.join(Rails.root, @email.image_full)))
     @photo.terms_of_service = "1"
 
