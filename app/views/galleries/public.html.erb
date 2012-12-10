@@ -112,14 +112,16 @@
 
 
         <ul>
-          <li>
-            <div class="thumbwrapper">
-              <a href="<%= upload_url %>" class="noimglightboxopener">
-                <img src="/assets/transp.gif" class="transpoverlay" />
-              </a>
-              <img src="<%= @uploadimg %>" width="" height="" class="thumbnail" />
-            </div>
-          </li>
+          <% if @gallery.has_upload %>
+            <li>
+              <div class="thumbwrapper">
+                <a href="<%= upload_url %>" class="noimglightboxopener">
+                  <img src="/assets/transp.gif" class="transpoverlay" />
+                </a>
+                <img src="<%= @uploadimg %>" width="" height="" class="thumbnail" />
+              </div>
+            </li>
+          <% end %>
           <% if @gallery.has_rating? %>
             <% @gallery.photos.by_votes.each do |photo| %>
               <% if photo.is_active %>
