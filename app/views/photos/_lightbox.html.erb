@@ -79,32 +79,26 @@
           <div class="videowrapper">
         <% end %>
           <div class="videoinner">
-            <div class="video" id="video_<%= photo.id %>">Loading the player...</div>
-
-            <script>jwplayer.key="QE7fpd76gOWvf3c2Zq0uOWO44opXjpQufIVahA=="</script>
 
             <% if @gallery.site_width < 600 %>
-              <script type="text/javascript">
-                jwplayer("video_<%= photo.id %>").setup({
-                  flashplayer:"<%=asset_path('jwplayer.flash.swf')%>",
-                  file: "<%= photo.video %>",
-                  image: "<%= photo.video_poster %>",
-                  primary: "flash",
-                  width: 340,
-                  height: 181
-                });
-              </script>
+              <embed type="application/x-shockwave-flash" src="/assets/player.swf?v1.3.5" 
+              id="f4Player" width="340" height="181" 
+              flashvars="skin=/assets/mySkin.swf&thumbnail=<%= photo.video_poster %>&video=<%= photo.video %>" 
+              allowscriptaccess="always" allowfullscreen="true" bgcolor="#000000"/> 
+              <noembed> 
+                 You need Adobe Flash Player to watch this video. 
+                 <a href="http://get.adobe.com/flashplayer/">Download it from Adobe.</a> 
+              </noembed> 
+
             <% else %>
-              <script type="text/javascript">
-                jwplayer("video_<%= photo.id %>").setup({
-                  flashplayer:"<%=asset_path('jwplayer.flash.swf')%>",
-                  file: "<%= photo.video %>",
-                  image: "<%= photo.video_poster %>",
-                  primary: "flash",
-                  width: 480,
-                  height: 270
-                });
-              </script>
+              <embed type="application/x-shockwave-flash" src="/assets/player.swf?v1.3.5" 
+              id="f4Player" width="480" height="270" 
+              flashvars="skin=/assets/mySkin.swf&thumbnail=<%= photo.video_poster %>&video=<%= photo.video %>" 
+              allowscriptaccess="always" allowfullscreen="true" bgcolor="#000000"/> 
+              <noembed> 
+                 You need Adobe Flash Player to watch this video. 
+                 <a href="http://get.adobe.com/flashplayer/">Download it from Adobe.</a> 
+              </noembed> 
 
             <% end %>
 

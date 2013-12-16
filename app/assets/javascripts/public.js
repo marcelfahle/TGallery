@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree ./public
-//= require jwplayer
 //= require jquery.fancybox
 //= require jquery.fancybox-media
 //= require jquery.fancybox-buttons
